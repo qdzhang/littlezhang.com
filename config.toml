@@ -63,3 +63,7 @@ url = "/categories/"
 [[params.nav.custom]]
 title = "关于"
 url = "/about/"
+
+[[params.siteauth]]
+google = "joRs891zFcA8VFOnKaPmYjMBEj4fpHSUrvpk2nnAaPs"
+bing = "C48D7007932689E9428166D439B8120D"
