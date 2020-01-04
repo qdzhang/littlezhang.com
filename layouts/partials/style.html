@@ -1,0 +1,31 @@
+{{- $style := "auto" -}}
+{{- if and (isset .Site.Params "style") (ne .Site.Params.style "") -}}
+{{- $style = .Site.Params.style | lower -}}
+{{- end -}}
+
+{{- $coreCSS := resources.Get "css/style.css" -}}
+{{- if ne $style "light" -}}
+    {{- $darkStyle := resources.Get "css/dark-style.css" -}}
+    {{- if eq $style "dark" -}}
+        {{- $coreCSS = slice $coreCSS $darkStyle | resources.Concat "css/tmp_style.css" -}}
+    {{- else -}}
+        {{- $darkStyleBegin := (print "@media (prefers-color-scheme: dark) {") | resources.FromString "css/tmp_style_dark_begin.css" -}}
+        {{- $darkStyleEnd := (print "}") | resources.FromString "css/tmp_style_dark_end.css" -}}
+        {{- $darkStyleCSS := slice $darkStyleBegin $darkStyle | resources.Concat "css/tmp_style_dark_.css" -}}
+        {{- $darkStyleCSS = slice $darkStyleCSS $darkStyleEnd | resources.Concat "css/tmp_style_dark.css" -}}
+        {{- $coreCSS = slice $coreCSS $darkStyleCSS | resources.Concat "css/tmp_style.css" -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $coreCSS = slice $coreCSS | resources.Concat "css/tmp_core.css" -}}
+
+{{- with partial "custom-css.html" . -}}
+    {{- if ne . "" -}}
+        {{- $coreCSS = slice $coreCSS . | resources.Concat "css/custom_core.css" -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $coreCSS = slice $coreCSS ("" | resources.FromString "css/_core.css") | resources.Concat "css/core.css" -}}
+{{- $coreCSS = $coreCSS | resources.Minify | resources.Fingerprint "sha384" -}}
+
+<link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}">
