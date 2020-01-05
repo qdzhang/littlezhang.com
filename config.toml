@@ -26,6 +26,8 @@ style = "xcode"
 unsafe = true  # enable raw HTML in Markdown
 
 [params]
+author = "理头张"
+description = "littlezhang's blog"
 style = "auto"  # default: auto. light: light theme, dark: dark theme, auto: based on system.
 logo = "/logo.png"
 slogan = ""
