@@ -30,5 +30,5 @@
 
 {{ $criticalCSS := resources.Get "css/critical-style.css" }}
 <style type="text/css">{{ $criticalCSS.Content | safeCSS }}</style>
-<link rel="preload" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}"></noscript>
+<link rel="preload" href="{{ $coreCSS.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ $coreCSS.RelPermalink }}" integrity="{{ $coreCSS.Data.Integrity }}"></noscript>
