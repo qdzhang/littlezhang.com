@@ -28,4 +28,7 @@
 {{- $coreCSS = slice $coreCSS ("" | resources.FromString "css/_core.css") | resources.Concat "css/core.css" -}}
 {{- $coreCSS = $coreCSS | resources.Minify | resources.Fingerprint "sha384" -}}
 
-<link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}">
+{{ $criticalCSS := resources.Get "css/critical-style.css" }}
+<style type="text/css">{{ $criticalCSS.Content | safeCSS }}</style>
+<link rel="preload" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}"></noscript>
