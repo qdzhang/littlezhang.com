@@ -200,7 +200,7 @@ h3 {
 
 .note-title {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: 700;
     color: #303033
 }
 
@@ -266,6 +266,10 @@ h3 {
     color: #fff
 }
 
-.site-slogan,.note,.article-date,.footer,.markdown-body {
+.site-slogan,.note,.article-date,.footer {
     color: #838387
+}
+
+.markdown-body {
+    color: #444
 }
