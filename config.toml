@@ -20,7 +20,7 @@ enableEmoji = true
 codeFences = true
 guessSyntax = false
 noClasses = true
-style = "xcode"
+style = "friendly"
 
 [markup.goldmark.renderer]
 unsafe = true  # enable raw HTML in Markdown
