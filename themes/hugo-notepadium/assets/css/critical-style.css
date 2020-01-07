@@ -270,6 +270,20 @@ h3 {
     color: #838387
 }
 
+.article-header {
+    margin: 20px 0;
+}
+
+.article-date {
+    font-size: 14px;
+    margin-top: 20px;
+}
+
 .markdown-body {
     color: #444
+}
+
+.markdown-body p {
+    margin-top: 0;
+    margin-bottom: 20px;
 }
