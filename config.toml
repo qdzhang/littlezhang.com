@@ -25,6 +25,9 @@ style = "friendly"
 [markup.goldmark.renderer]
 unsafe = true  # enable raw HTML in Markdown
 
+[permalinks]
+  post = "/:year/:month/:title/"
+
 [params]
 author = "理头张"
 description = "littlezhang's blog"
