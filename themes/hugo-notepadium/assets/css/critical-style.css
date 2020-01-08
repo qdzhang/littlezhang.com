@@ -212,6 +212,25 @@ h3 {
     margin-top: 4px
 }
 
+.tag-cloud {
+    margin: 2em 0 3em;
+    text-align: center;
+  }
+  
+  .tag-cloud-tags {
+    display: inline-block;
+    position: relative;
+    margin: 5px 5px;
+    color: #303033;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .tag-cloud-tags:hover {
+    color: #30303380;
+    text-decoration: none;
+  }
+
 .article-tag,.article-category {
     display: inline-block;
     font-size: 15px;
