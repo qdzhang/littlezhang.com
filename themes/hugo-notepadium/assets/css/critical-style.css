@@ -217,19 +217,32 @@ h3 {
     text-align: center;
   }
   
-  .tag-cloud-tags {
-    display: inline-block;
-    position: relative;
-    margin: 5px 5px;
+.tag-cloud-tags {
+display: inline-block;
+position: relative;
+margin: 5px 5px;
+color: #303033;
+word-wrap: break-word;
+overflow-wrap: break-word;
+}
+
+.tag-cloud-tags:hover {
+color: #30303380;
+text-decoration: none;
+}
+
+.archive-year {
+    font-size: 20px;
+    font-weight: 800;
     color: #303033;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-  
-  .tag-cloud-tags:hover {
-    color: #30303380;
-    text-decoration: none;
-  }
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.archive-list {
+    list-style: none;
+    margin-left: 30px;
+}
 
 .article-tag,.article-category {
     display: inline-block;

@@ -1,0 +1,20 @@
+{{- define "main" -}}
+
+<div class="content">
+      <h2>{{- .Title | safeHTML -}}</h2>
+      {{- with .Site.GetPage "Type" "post" -}}
+      {{- range (.Site.RegularPages.GroupByDate "2006") -}}
+      {{- if (gt .Key 2016) -}}
+      <p class="archive-year">{{- .Key -}}</p>
+      {{- end -}}
+          <ul class="archive-list">
+              {{- range (where .Pages "Type" "post") -}}
+                  <li>
+                    {{- .PublishDate.Format "2006-01-02" -}}<span> </span><a href="{{- .RelPermalink -}}">{{- .Title -}}</a>
+                  </li>
+              {{- end -}}
+          </ul>
+      {{- end -}}
+      {{- end -}}
+  </div>
+{{- end -}}
