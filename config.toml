@@ -28,6 +28,9 @@ unsafe = true  # enable raw HTML in Markdown
 [permalinks]
   post = "/:year/:month/:title/"
 
+[author]
+    name = "理头张"
+
 [params]
 author = "理头张"
 description = "littlezhang's blog"
