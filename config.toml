@@ -31,6 +31,11 @@ unsafe = true  # enable raw HTML in Markdown
 [author]
     name = "理头张"
 
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
 [params]
 author = "理头张"
 description = "littlezhang's blog"
@@ -62,8 +67,8 @@ title = "标签"
 url = "/tags/"
 
 [[params.nav.custom]]
-title = "分类"
-url = "/categories/"
+title = "系列"
+url = "/series/"
 
 [[params.nav.custom]]
 title = "归档"
