@@ -18,7 +18,7 @@ enableEmoji = true
 
 [markup.highlight]
 codeFences = true
-guessSyntax = false
+guessSyntax = true
 noClasses = true
 style = "friendly"
 
