@@ -17,7 +17,7 @@ mathjax: false
 
 通过配置 task.json，来配置编译过程。点击菜单栏上的“终端” --> “配置任务...”，选择“使用模板创建 task.json 文件”，再选择“Others”，就可以在当前目录下创建一个 `.vscode` 文件夹，里面包含一个 task.json 文件了。
 
-{{< video src="https://res.cloudinary.com/dny1wymwm/video/upload/v1578747255/task.av1_d3s44k.mp4">}}
+![](https://res.cloudinary.com/dny1wymwm/image/upload/v1577065732/task_ozcfg6.gif)
 
 复制下面的内容，全部替换自动生成的 task.json 文件的内容。鼠标放在每一项上，都可以看到 VS Code 给出的提示，可以根据自己的需要进行修改。
 
@@ -50,7 +50,7 @@ mathjax: false
 
 点击菜单栏上的“调试” --> “添加配置（或是打开配置）”，会在 `.vscode` 目录下创建一个 launch.json 文件。
 
-{{< video src="https://res.cloudinary.com/dny1wymwm/video/upload/v1578747451/launch.av1_owzih8.mp4" >}}
+![](https://res.cloudinary.com/dny1wymwm/image/upload/v1577066112/launch_uvuwtn.gif)
 
 复制下面的内容，全部替换自动生成的 launch.json 文件的内容。鼠标放在每一项上，都可以看到 VS Code 给出的提示，可以根据自己的需要进行修改。
 
