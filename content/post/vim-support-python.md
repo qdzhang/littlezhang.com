@@ -43,6 +43,6 @@ draft: false
 
 
 
-*参考网站*
+*参考链接*
 
 - [Python support for Vim on Windows](https://www.reddit.com/r/vim/comments/bc8t83/python_support_for_vim_on_windows/)
