@@ -14,7 +14,7 @@ author = "Hugo Authors"
 
 如果上面的都做不到，那就仅仅为了有趣吧！Just for fun!
 
-欢迎交流：q<!-- >@mail.com -->d.<!-- >#@. -->z<!-- >#mail@. -->#fo<!-- >#@. -->xmail.com(#替换为@)
+欢迎交流：{{< cloakemail address="qd.z@foxmail.com" >}}
 
 ## Thanks to
 
