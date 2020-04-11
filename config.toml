@@ -5,6 +5,7 @@ copyright = "©2017-2020 理头张"
 
 languageCode = "zh-cn"
 hasCJKLanguage = true
+defaultContentLanguage = "zh-cn"
 
 enableRobotsTXT = true
 paginate = 7
