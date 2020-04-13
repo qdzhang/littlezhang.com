@@ -42,7 +42,7 @@ theme = ["my-shortcodes", "base-theme", "hyde"]
 {{</* /notice */>}}
 ```
 
-{{< notice note >}}
+{{< notice nnote >}}
 这是一条注释
 {{< /notice >}}
 
