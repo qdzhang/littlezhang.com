@@ -334,7 +334,6 @@ strong {
   margin: 2px 3px 2px 0;
   white-space: nowrap;
   color: #f25022;
-  border-radius: 3px;
 }
 
 .nav-item:hover,
@@ -389,7 +388,7 @@ strong {
 .note:hover,
 .note:focus,
 .note:active {
-  opacity: .5;
+  opacity: .7;
   text-decoration: none;
 }
 
