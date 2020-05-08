@@ -334,7 +334,6 @@ strong {
   margin: 2px 3px 2px 0;
   white-space: nowrap;
   color: #f25022;
-  background-color: rgba(242, 80, 34, .05);
   border-radius: 3px;
 }
 
@@ -342,7 +341,6 @@ strong {
 .nav-item:focus,
 .nav-item:active {
   text-decoration: none;
-  background-color: rgba(242, 80, 34, .5);
 }
 
 .flex-body {

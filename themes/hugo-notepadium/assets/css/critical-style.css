@@ -132,6 +132,12 @@ h3 {
     margin-top: -5px
 }
 
+.header-wrap {
+    text-align: initial;
+    padding: 10px 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
 .header-wrap>*,.nav-wrap>* {
     margin-top: 5px
 }
@@ -143,7 +149,8 @@ h3 {
 
 .site-name {
     display: inline-block;
-    font-weight: 600
+    font-weight: 600;
+    font-size: 21px
 }
 
 .site-logo {
@@ -155,14 +162,20 @@ h3 {
 
 .nav-item {
     display: inline-block;
-    font-size: 15px;
-    line-height: 1;
+    font-size: 18px;
     padding: 4px 6px;
     margin: 2px 3px 2px 0;
+    color: #444;
+    line-height: 1.5;
     white-space: nowrap;
-    color: #f25022;
-    background-color: rgba(242,80,34,.05);
-    border-radius: 3px
+}
+
+.nav-item:hover,
+.nav-item:focus,
+.nav-item:active {
+  text-decoration: none;
+  color: #6c9dff;
+  border-bottom: solid 1px #6c9dff;
 }
 
 .flex-body {
@@ -199,7 +212,7 @@ h3 {
 }
 
 .note-title {
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 700;
     color: #303033
 }
