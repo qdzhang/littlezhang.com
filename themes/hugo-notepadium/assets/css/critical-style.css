@@ -275,18 +275,23 @@ text-decoration: none;
     border-radius: 3px
 }
 
-.article-tag {
-    background-color: rgba(0,122,255,.05)
-}
-
 .article-category {
     color: #3a8c42;
-    background-color: rgba(58,140,66,.05)
 }
 
 .article-category .hashtag,.article-tag .hashtag {
     font-weight: 700;
     opacity: .5
+}
+
+.article-tag:hover,
+.article-tag:focus,
+.article-tag:active,
+.article-category:hover,
+.article-category:focus,
+.article-category:active {
+  opacity: .5;
+  text-decoration: underline;
 }
 
 .pagination {
