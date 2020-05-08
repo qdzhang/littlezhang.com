@@ -19,7 +19,7 @@ html {
 body {
     display: block;
     color: #303033;
-    background-color: #fff;
+    background-color: #fffff8;
     margin: 0 auto;
     padding: 0;
     word-wrap: break-word;
@@ -196,10 +196,11 @@ h3 {
 .note-list .item {
     position: relative;
     width: 100%;
-    margin: 0;
-    padding: 8px 0;
-    border-bottom: 1px solid #f0f0f0;
-    word-wrap: break-word
+    margin-top: 16px;
+    padding: 20px;
+    background-color: #fffff8;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(27,31,35,0.15)
 }
 
 .note-list .item:last-child {
