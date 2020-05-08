@@ -19,7 +19,7 @@ html {
 body {
     display: block;
     color: #303033;
-    background-color: #fffff8;
+    background-color: #f3f6f9;
     margin: 0 auto;
     padding: 0;
     word-wrap: break-word;
@@ -74,7 +74,7 @@ p {
 }
 
 a {
-    color: #007aff;
+    color: #06c;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-text-decoration-skip: objects;
@@ -150,7 +150,8 @@ h3 {
 .site-name {
     display: inline-block;
     font-weight: 600;
-    font-size: 21px
+    font-size: 21px;
+    color: #3f4b67;
 }
 
 .site-logo {
@@ -198,7 +199,7 @@ h3 {
     width: 100%;
     margin-top: 16px;
     padding: 20px;
-    background-color: #fffff8;
+    background-color: #fdfdfd;
     border-radius: 6px;
     box-shadow: 0 1px 5px rgba(27,31,35,0.15)
 }
@@ -313,19 +314,27 @@ text-decoration: none;
 }
 
 .pagination ul li a {
-    color: #007aff;
+    color: #06c;
     float: left;
     padding: 8px 16px;
     text-decoration: none
 }
 
 .pagination ul li a.active {
-    background-color: #007aff;
+    background-color: #06c;
     color: #fff
 }
 
 .site-slogan,.note,.article-date,.footer {
     color: #838387
+}
+
+.article-containter {
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(27,31,35,0.15);
+    margin-bottom: 20px;
 }
 
 .article-header {

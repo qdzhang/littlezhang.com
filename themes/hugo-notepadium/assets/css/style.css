@@ -299,6 +299,10 @@ strong {
   margin-bottom: 20px;
 }
 
+.article-labels {
+  text-align: center;
+}
+
 .article-discussion {
   border-top: 1px dashed #e1e4e8;
   border-bottom: 1px dashed #e1e4e8;
