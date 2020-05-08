@@ -392,9 +392,10 @@ strong {
 
 .markdown-body blockquote {
   position: relative;
-  border: 0;
-  padding: 0 0 0 22px;
-  border-left: 4px solid #a7d1ff;
+  padding: .95em;
+  border-radius: 6px;
+  border-left: 6px solid #fee450;
+  background-color: #fbf8e8;
 }
 
 .markdown-body blockquote:before,
@@ -402,11 +403,6 @@ strong {
 .markdown-body q:before,
 .markdown-body q:after {
   color: #c6c6cc;
-}
-
-.markdown-body blockquote:before,
-.markdown-body q:before {
-  content: "❝";
 }
 
 .markdown-body q:after {
