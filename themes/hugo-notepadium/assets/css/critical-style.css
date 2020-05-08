@@ -211,6 +211,13 @@ h3 {
     text-decoration: none
 }
 
+.note:hover,
+.note:focus,
+.note:active {
+  opacity: .7;
+  text-decoration: none;
+}
+
 .note-title {
     font-size: 19px;
     font-weight: 700;
