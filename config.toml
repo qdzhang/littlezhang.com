@@ -26,6 +26,11 @@ style = "friendly"
 [markup.goldmark.renderer]
 unsafe = true  # enable raw HTML in Markdown
 
+[markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+
 [permalinks]
   post = "/:year/:month/:title/"
 

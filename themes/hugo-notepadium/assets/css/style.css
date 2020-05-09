@@ -570,6 +570,42 @@ strong {
   overflow: auto;
 }
 
+.toc {
+  margin-top: 0;
+  margin-left: 10px;
+  padding: 10px;
+  
+}
+
+div > aside {
+  position: sticky;
+	top: 2rem;
+	align-self: start;
+}
+
+nav ul {
+  list-style: none;
+  margin-left: 1em;
+  padding-left: 0;
+}
+
+nav ul li a{
+  color: #3f4b67;
+  transition: all 50ms ease-in-out;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #06c;
+  text-decoration: none;
+  padding-left: 7px;
+  border-left: 2px solid #06c;
+}
+
+.toc-title {
+  text-align: center;
+}
+
 @media (max-width: 375px) {
   html {
     font-size: 15px;
@@ -602,5 +638,11 @@ strong {
   .max-body-width {
     padding-left: 15px;
     padding-right: 15px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .toc {
+      display: none;
   }
 }
