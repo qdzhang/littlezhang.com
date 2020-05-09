@@ -1,9 +1,9 @@
 {{- define "main" -}}
-<div class="article-containter">
 <div class="content">
     <section class="article-header">
       <h1>{{- .Title | safeHTML -}}</h1>
     </section>
+    <div class="article-containter">
       {{- with .Site.GetPage "Type" "post" -}}
       {{- range (.Site.RegularPages.GroupByDate "2006") -}}
       {{- if (gt .Key 2016) -}}
