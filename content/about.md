@@ -14,8 +14,6 @@ author = "Hugo Authors"
 
 如果上面的都做不到，那就仅仅为了有趣吧！Just for fun!
 
-欢迎交流：{{< cloakemail address="qd.z@foxmail.com" >}}
-
 ## Thanks to
 
 网站由 [Hugo](https://gohugo.io/) 构建，采用 [notepadium](https://github.com/cntrump/hugo-notepadium) 主题。网站图标来自 [ionchan](https://ionchan.com/icon-character-boys-girls/)，图标版权归原作者所有。
