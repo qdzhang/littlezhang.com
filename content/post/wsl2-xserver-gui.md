@@ -14,7 +14,7 @@ draft: false
 
 最近要用到 Selenium，我的开发环境在 WSL2 下，需要在 WSL2 下安装 Chrome 和 ChromeDriver，所以就有了这篇记录。
 
-本文的目标是在 WSL2 下使用 GUI 程序，**不需要安装整个桌面环境**（GNOME、KDE、XFCE等）。其中以 Chome 为例，如果你不需要安装 Chrome，可以直接跳转到[这一节](#在-Windows-下安装-X-Server)。
+本文的目标是在 WSL2 下使用 GUI 程序，**不需要安装整个桌面环境**（GNOME、KDE、XFCE等）。其中以 Chome 为例，如果你不需要安装 Chrome，可以直接跳转到[这一节](#-windows--x-server)。
 
 ## 安装 Chrome
 
