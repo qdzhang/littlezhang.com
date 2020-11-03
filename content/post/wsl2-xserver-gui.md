@@ -9,7 +9,7 @@ series: []
 toc: true
 math: false
 markup: md
-draft: true
+draft: false
 ---
 
 最近要用到 Selenium，我的开发环境在 WSL2 下，需要在 WSL2 下安装 Chrome 和 ChromeDriver，所以就有了这篇记录。
