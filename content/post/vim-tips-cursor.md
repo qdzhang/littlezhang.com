@@ -1,10 +1,10 @@
 ---
-title: "[VIM TIPS]设置Windows Terminal内vim的光标"
+title: "[Vim Tips]设置Windows Terminal内vim的光标"
 date: 2020-11-07 
 description: 设置终端内vim的光标，change vim cursor in terminal
 tags: [vim, 折腾]
 categories: [vim]
-series: [VIM TIPS]
+series: [Vim Tips]
 math: false
 markup: md
 draft: false
