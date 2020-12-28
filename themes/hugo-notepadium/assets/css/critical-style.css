@@ -266,6 +266,10 @@ text-decoration: none;
     list-style: none;
 }
 
+.archive-date {
+    flex: 0 0 100px;
+}
+
 ul.archive-list li {
     display: flex;
 }
