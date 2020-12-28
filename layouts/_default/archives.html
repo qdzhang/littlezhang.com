@@ -4,6 +4,8 @@
       <h1>{{- .Title | safeHTML -}}</h1>
     </section>
     <div class="article-containter">
+      {{- $postCount := len (where .Site.RegularPages "Section" "!=" "") -}}
+      <p>✒️目前共有&nbsp{{- $postCount -}}&nbsp篇文章</p>
       {{- with .Site.GetPage "Type" "post" -}}
       {{- range (.Site.RegularPages.GroupByDate "2006") -}}
       {{- if (gt .Key 2016) -}}
@@ -12,7 +14,7 @@
           <ul class="archive-list">
               {{- range (where .Pages "Type" "post") -}}
                   <li>
-                    {{- .PublishDate.Format "2006-01-02" -}}<span> </span><a href="{{- .RelPermalink -}}">{{- .Title -}}</a>
+                      <span style="margin-right: 10px;">{{- .PublishDate.Format "2006-01-02" -}}</span><a href="{{- .RelPermalink -}}">{{- .Title -}}</a>
                   </li>
               {{- end -}}
           </ul>
