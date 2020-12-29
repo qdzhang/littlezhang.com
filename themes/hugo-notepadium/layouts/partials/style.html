@@ -2,7 +2,11 @@
 {{- if and (isset .Site.Params "style") (ne .Site.Params.style "") -}}
 {{- $style = .Site.Params.style | lower -}}
 {{- end -}}
-
+<link rel="dns-prefetch" href="//res.cloudinary.com/">
+<link rel="dns-prefetch" href="//fonts.gstatic.com/">
+{{- if not .Page.IsHome -}}
+<link rel="preload" href="https://fonts.gstatic.com/s/sourcecodepro/v11/HI_XiYsKILxRpg3hIP6sJ7fM7PqtzsjDs-cq.woff2" as="font" type="font/woff2" crossorigin>
+{{- end -}}
 {{- $coreCSS := resources.Get "css/style.css" -}}
 {{- if ne $style "light" -}}
     {{- $darkStyle := resources.Get "css/dark-style.css" -}}
@@ -17,51 +21,19 @@
     {{- end -}}
 {{- end -}}
 
-{{- $themePath := "" -}}
-{{- $theme := "dracula" -}}
-{{- with .Site.Params.syntax -}}
-{{- $use := "none" -}}
-{{- if and (isset . "use") (ne .use "") -}}{{- $use = .use | lower -}}{{- end -}}
-{{- if and (isset . "theme") (ne .theme "") -}}{{- $theme = .theme | lower -}}{{- end -}}
+{{- $coreCSS = slice $coreCSS | resources.Concat "css/tmp_core.css" -}}
 
-{{- if eq $use "hljs" -}}
-{{- $themePath = "css/hljs/" -}}
-{{- else if eq $use "prismjs" -}}
-{{- $themePath = "css/prism/" -}}
-{{- end -}}
-{{- end -}}
-
-{{- if eq $themePath "" -}}
-{{- $themePath = "css/chroma/" -}}
-{{- end -}}
-
-{{- $syntaxCSS := resources.Get (print (path.Join $themePath $theme) ".css") -}}
-
-{{- $darkTheme := .Site.Params.syntax.darkTheme -}}
-{{- if and $darkTheme (ne $darkTheme "") -}}
-{{- if ne $style "light" -}}
-    {{- $darkSyntax := resources.Get (print (path.Join $themePath $darkTheme) ".css") -}}
-    {{- if eq $style "dark" -}}
-        {{- $syntaxCSS = slice $syntaxCSS $darkSyntax | resources.Concat "css/tmp_syntax.css" -}}
-    {{- else -}}
-        {{- $darkSyntaxBegin := (print "@media (prefers-color-scheme: dark) {") | resources.FromString "css/tmp_syntax_dark_begin.css" -}}
-        {{- $darkSyntaxEnd := (print "}") | resources.FromString "css/tmp_syntax_dark_end.css" -}}
-        {{- $darkSyntaxCSS := slice $darkSyntaxBegin $darkSyntax | resources.Concat "css/tmp_syntax_dark_.css" -}}
-        {{- $darkSyntaxCSS = slice $darkSyntaxCSS $darkSyntaxEnd | resources.Concat "css/tmp_syntax_dark.css" -}}
-        {{- $syntaxCSS = slice $syntaxCSS $darkSyntaxCSS | resources.Concat "css/tmp_syntax.css" -}}
-    {{- end -}}
-{{- end -}}
-{{- end -}}
-
-{{- $coreCSS = slice $coreCSS $syntaxCSS | resources.Concat "css/tmp_core.css" -}}
-
+{{ $criticalCSS := resources.Get "css/critical-style.css" }}
 {{- with partial "custom-css.html" . -}}
     {{- if ne . "" -}}
-        {{- $coreCSS = slice $coreCSS . | resources.Concat "css/custom_core.css" -}}
+        {{- $criticalCSS = slice $criticalCSS . | resources.Concat "css/custom_core.css" -}}
+        {{- $criticalCSS = $criticalCSS | resources.Minify -}}
     {{- end -}}
 {{- end -}}
 
 {{- $coreCSS = slice $coreCSS ("" | resources.FromString "css/_core.css") | resources.Concat "css/core.css" -}}
 {{- $coreCSS = $coreCSS | resources.Minify | resources.Fingerprint "sha384" -}}
 
-<link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}">
+<link rel="preload" href="{{- $coreCSS.RelPermalink -}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}"></noscript>
+<style type="text/css">{{- $criticalCSS.Content | safeCSS -}}</style>
