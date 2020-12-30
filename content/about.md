@@ -8,7 +8,7 @@ layout = "about"
 author = "Hugo Authors"
 +++
 
-理头张是 littlezhang 的音译，同时也是一个递归缩写，全称为“理清头绪的理头张”  :joy: 。
+理头张是一个递归缩写，全称为“**理**清**头**绪的理头**张**”, 同时也是 littlezhang 的音译。
 
 理头张在这儿理清头绪，分享经验，修炼文字，让自己的表达明白了当。
 
@@ -20,4 +20,4 @@ author = "Hugo Authors"
 
 ## License
 
-除特别声明外，本博客所有作品均采用[知识共享署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)进行许可。
+除特别声明外，本博客所有文章均采用[知识共享署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)许可协议](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)进行许可。
