@@ -5,7 +5,7 @@
 <span class="image-container">
 {{- end -}}
 <a {{ if $block }}class="link"{{ end }} target="_blank" rel="noopener noreferrer" 
-  href="{{- $url -}}"><img loading="lazy" {{ if $block }}class="img"{{ end }} src="{{- $url -}}"
+  href="{{- $url -}}"><img loading="lazy" {{ if $block }}class="img"{{ end }} src="{{- $url -}}" width="100%" height="auto"
         alt{{- with .Text -}}="{{- . -}}" {{- end -}} /></a>
 {{- if $block -}}
   {{- if ne .Title " " -}}
