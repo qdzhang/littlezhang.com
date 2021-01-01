@@ -1,7 +1,7 @@
 baseURL = "https://www.littlezhang.com/"
 title = "理头张的博客"
 theme = ["hugo-cloak-email", "hugo-notice", "hugo-notepadium"]
-copyright = "©2017-2020 理头张"
+copyright = "©2017-2021 理头张"
 
 languageCode = "zh-cn"
 hasCJKLanguage = true
