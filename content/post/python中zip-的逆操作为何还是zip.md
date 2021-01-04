@@ -8,7 +8,7 @@ tags:
   - Python
 categories:
   - Python
-toc: true
+toc: false
 mathjax: false
 ---
 `zip()` 是Python 中的内置函数，用于将多个可迭代对象“链”在一起（我没有想出一个贴切的中文来解释这个函数，网上有用“打包”、“压缩”这些说法的，但感觉都不太贴切）。按照惯常思维，有了 `zip()`，应该还要有它的逆操作 `unzip()`。但我在之前刚开始学 Python 的时候，看到书上有这样的一句话：

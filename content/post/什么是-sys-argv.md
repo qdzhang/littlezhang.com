@@ -6,7 +6,7 @@ tags:
   - Python
 categories:
   - Python
-toc: true
+toc: false
 mathjax: false
 ---
 看到一些 Python 例子中出现 `sys.argv` 这样的用法，于是查了一下，在此记一笔。

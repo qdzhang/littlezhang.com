@@ -7,7 +7,7 @@ tags:
   - C Sharp
 categories:
   - WinForms
-toc: true
+toc: false
 mathjax: false
 ---
 最近在使用 WinForms 时，发现默认情况下各个控件很模糊。最终找到的解决办法是在项目里的 `App.config` 文件里的 `configuration` 标签内添加如下代码[^1]：
