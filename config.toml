@@ -72,9 +72,9 @@ url = "/"
 title = "标签"
 url = "/tags/"
 
-# [[params.nav.custom]]
-# title = "系列"
-# url = "/series/"
+[[params.nav.custom]]
+title = "系列"
+url = "/series/"
 
 [[params.nav.custom]]
 title = "归档"
