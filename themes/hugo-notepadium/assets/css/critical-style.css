@@ -44,12 +44,11 @@ html[data-theme='dark'] {
 --a-link-color: #5176bf
 }
 
-html .light-hidden {
-    display: none
-}
-
-html[data-theme='dark'] .dark-hidden {
-    display: none
+.data-theme-btn {
+    border: none;
+    transition: .3s;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 body {
