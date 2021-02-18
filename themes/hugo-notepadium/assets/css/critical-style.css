@@ -17,6 +17,41 @@ html {
     scroll-behavior: smooth
 }
 
+html {
+    transition: color 300ms, background-color 300ms;
+}
+
+html[data-theme='dark'] {
+    background: #000000;
+    filter: invert(1) hue-rotate(180deg)
+}
+
+html[data-theme='dark'] img {
+  filter: invert(1) hue-rotate(180deg)
+}
+
+html {
+--note-background-color: #fdfdfd;
+--note-box-shadow: 0 1px 5px rgba(27,31,35,0.15);
+--site-name-color: #3f4b67;
+--a-link-color: #06c
+}
+
+html[data-theme='dark'] {
+--note-background-color:  #dfdfdf;
+--note-box-shadow: 0 1px 5px rgba(213,213,213,0.15);
+--site-name-color: #618de6;
+--a-link-color: #5176bf
+}
+
+html .light-hidden {
+    display: none
+}
+
+html[data-theme='dark'] .dark-hidden {
+    display: none
+}
+
 body {
     display: block;
     color: #303033;
@@ -76,7 +111,7 @@ p {
 }
 
 a {
-    color: #06c;
+    color: var(--a-link-color);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
     -webkit-text-decoration-skip: objects;
@@ -153,7 +188,7 @@ h3 {
     display: inline-block;
     font-weight: 600;
     font-size: 21px;
-    color: #3f4b67;
+    color: var(--site-name-color);
 }
 
 .site-logo {
@@ -201,9 +236,9 @@ h3 {
     width: 100%;
     margin-top: 16px;
     padding: 20px;
-    background-color: #fdfdfd;
+    background-color: var(--note-background-color);
     border-radius: 6px;
-    box-shadow: 0 1px 5px rgba(27,31,35,0.15)
+    box-shadow: var(--note-box-shadow)
 }
 
 .note-list .item:last-child {
@@ -323,14 +358,14 @@ ul.archive-list li {
 }
 
 .pagination ul li a {
-    color: #06c;
+    color: var(--a-link-color);
     float: left;
     padding: 8px 16px;
     text-decoration: none
 }
 
 .pagination ul li a.active {
-    background-color: #06c;
+    background-color: var(--a-link-color);
     color: #fff
 }
 
