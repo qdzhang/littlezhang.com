@@ -12,12 +12,15 @@ const toggleTheme = (theme) => {
 }
 
 if (
+        localStorage.getItem('theme') === 'dark' ||
         window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches &&
-        localStorage.getItem('theme') !== 'light'
+        window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-        htmlEl.dataset.theme = 'dark';
-    } 
+        toggleTheme('dark');
+    } else 
+        {
+        toggleTheme('light');
+        }
 </script>
 
 <button 
