@@ -44,8 +44,17 @@ html[data-theme='dark'] {
 --a-link-color: #5176bf
 }
 
+html[data-theme='light'] .light-hidden {
+    display: none;
+}
+
+html[data-theme='dark'] .dark-hidden{
+    display: none;
+}
+
 .data-theme-btn {
     border: none;
+    vertical-align: middle;
     transition: .3s;
     background-color: Transparent;
     background-repeat:no-repeat;
