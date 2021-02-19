@@ -16,7 +16,7 @@ if (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-        toggleTheme('dark');
+        htmlEl.dataset.theme = 'dark';
     } else 
         {
         toggleTheme('light');
