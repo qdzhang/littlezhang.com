@@ -10,7 +10,19 @@ const toggleTheme = (theme) => {
     htmlEl.dataset.theme = theme;
     localStorage.setItem('theme', theme);
 }
+
+if (
+        localStorage.getItem('theme') === 'dark' ||
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        toggleTheme('dark');
+    } else 
+        {
+        toggleTheme('light');
+        }
 </script>
+
 <button 
     class="data-theme-btn dark-hidden"
     onclick="toggleTheme('dark');">
