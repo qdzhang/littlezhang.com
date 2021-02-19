@@ -399,8 +399,8 @@ strong {
   position: relative;
   padding: .95em;
   border-radius: 6px;
-  border-left: 6px solid #fee450;
-  background-color: #fbf8e8;
+  border-left: var(--blockquote-border-left);
+  background-color: var(--blockquote-border-background-color);
 }
 
 .markdown-body blockquote:before,

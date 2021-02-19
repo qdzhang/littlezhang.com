@@ -21,7 +21,7 @@ enableEmoji = true
 codeFences = true
 guessSyntax = true
 noClasses = true
-style = "dracula"
+style = "manni"
 
 [markup.goldmark.renderer]
 unsafe = true  # enable raw HTML in Markdown
