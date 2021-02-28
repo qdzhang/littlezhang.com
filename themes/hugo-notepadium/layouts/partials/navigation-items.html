@@ -1,6 +1,6 @@
 {{- $nav := . -}}
 {{- if or $nav.showCategories $nav.showTags $nav.custom -}}
-<div class="nav-wrap"><div class="nav">
+<div class="nav">
     {{- if $nav.showCategories -}}
         <a class="nav-item" href="{{- `/categories/` | relURL -}}">Categories</a>
     {{- end -}}
@@ -23,5 +23,5 @@
 {{- if ne $style "light" -}}
     {{- partial "dark-mode.html" . -}}
 {{- end -}}
-</div></div>
+</div>
 {{- end -}}

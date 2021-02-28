@@ -5,9 +5,9 @@
 </head>
 
 <body>
-    <div class="base-body max-width">
+    <div class="wrapper">
         {{- partial "header.html" . -}}
-        <div id="content" class="flex-body max-body-width">
+        <div id="content">
             {{- block "main" . -}}{{- end -}}
         </div>
         {{- partial "footer.html" . -}}
