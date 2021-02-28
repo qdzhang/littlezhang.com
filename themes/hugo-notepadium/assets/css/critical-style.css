@@ -18,7 +18,7 @@ html {
 }
 
 html[data-theme='dark'] {
-    background: #3e4b5e;
+    background: #001d2d;
     filter: invert(1) hue-rotate(180deg)
 }
 
@@ -34,12 +34,14 @@ html {
     --link-underline: #90cff9;
     --blockquote-border-left: 6px solid #fee450;
     --blockquote-border-background-color: #fbf8e8;
+    --pag-background-color: rgba(0, 122, 255, .5)
 }
 
 html[data-theme='dark'] {
-    --color-primary: #e32a95;
-    --site-name-color: #618de6;
+    --color-primary: #ef2a83;
+    --link-underline: #ff93e3;
     --blockquote-border-left: 6px solid #5176bf;
+    --pag-background-color: rgba(239, 42, 131, .5)
 }
 
 h1,
@@ -286,7 +288,7 @@ ul.archive-list li {
 }
 
 .pagination ul li a:hover:not(.active) {
-  background-color: rgba(0, 122, 255, .5);
+  background-color: var(--pag-background-color);
 }
 
 .pagination ul li a.active {
