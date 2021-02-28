@@ -1,4 +1,248 @@
 // GoatCounter: https://www.goatcounter.com
 // This file (and *only* this file) is released under the ISC license:
 // https://opensource.org/licenses/ISC
-!function(){"use strict";window.goatcounter&&window.goatcounter.vars?window.goatcounter=window.goatcounter.vars:window.goatcounter=window.goatcounter||{};var t=document.querySelector("script[data-goatcounter]");if(t&&t.dataset.goatcounterSettings){try{var e=JSON.parse(t.dataset.goatcounterSettings)}catch(t){console.error("invalid JSON in data-goatcounter-settings: "+t)}for(var o in e)-1<["no_onload","no_events","allow_local","allow_frame","path","title","referrer","event"].indexOf(o)&&(window.goatcounter[o]=e[o])}function r(t){console&&"warn"in console&&console.warn("goatcounter: "+t)}function a(){var t=document.querySelector("script[data-goatcounter]");return t&&t.dataset.goatcounter?t.dataset.goatcounter:goatcounter.endpoint||window.counter}function i(t){null===document.body?document.addEventListener("DOMContentLoaded",function(){t()},!1):t()}var c=function(t){return null==t||"function"==typeof t},u=function(){var t=window,e=document;return t.callPhantom||t._phantom||t.phantom?150:t.__nightmare?151:e.__selenium_unwrapped||e.__webdriver_evaluate||e.__driver_evaluate?152:navigator.webdriver?153:0},l=function(){var t,e=location,o=document.querySelector('link[rel="canonical"][href]');return o&&((t=document.createElement("a")).href=o.href,t.hostname.replace(/^www\./,"")===location.hostname.replace(/^www\./,"")&&(e=t)),e.pathname+e.search||"/"};goatcounter.filter=function(){return"visibilityState"in document&&("prerender"===document.visibilityState||"hidden"===document.visibilityState)?"visibilityState":goatcounter.allow_frame||location===parent.location?!goatcounter.allow_local&&location.hostname.match(/(localhost$|^127\.|^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\.)/)?"localhost":goatcounter.allow_local||"file:"!==location.protocol?!(!localStorage||"t"!==localStorage.getItem("skipgc"))&&"disabled with #toggle-goatcounter":"localfile":"frame"},window.goatcounter.url=function(t){var e,o,n,o=("function"==typeof(t={p:(void 0===(t=t||{}).path?goatcounter:t).path,r:(void 0===t.referrer?goatcounter:t).referrer,t:(void 0===t.title?goatcounter:t).title,e:!(!t.event&&!goatcounter.event),s:[window.screen.width,window.screen.height,window.devicePixelRatio||1],b:u(),q:location.search}).r&&(e=t.r),"function"==typeof t.t&&(n=t.t),"function"==typeof t.p&&(o=t.p),c(t.r)&&(t.r=document.referrer),c(t.t)&&(t.t=document.title),c(t.p)&&(t.p=l()),e&&(t.r=e(t.r)),n&&(t.t=n(t.t)),o&&(t.p=o(t.p)),t);if(null!==o.p){o.rnd=Math.random().toString(36).substr(2,5);t=a();return t?t+function(t){var e,o=[];for(e in t)""!==t[e]&&null!==t[e]&&void 0!==t[e]&&!1!==t[e]&&o.push(encodeURIComponent(e)+"="+encodeURIComponent(t[e]));return"?"+o.join("&")}(o):r("no endpoint found")}},window.goatcounter.count=function(t){var e=goatcounter.filter();if(e)return r("not counting because of: "+e);t=goatcounter.url(t);if(!t)return r("not counting because path callback returned null");var o=document.createElement("img");o.src=t,o.style.position="absolute",o.setAttribute("alt",""),o.setAttribute("aria-hidden","true");t=function(){o&&o.parentNode&&o.parentNode.removeChild(o)};setTimeout(t,1e4),o.addEventListener("load",t,!1),document.body.appendChild(o)},window.goatcounter.get_query=function(t){for(var e=location.search.substr(1).split("&"),o=0;o<e.length;o++)if(0===e[o].toLowerCase().indexOf(t.toLowerCase()+"="))return e[o].substr(t.length+1)},window.goatcounter.bind_events=function(){document.querySelectorAll&&Array.prototype.slice.call(document.querySelectorAll("*[data-goatcounter-click]")).forEach(function(t){var e,o;t.dataset.goatcounterBound||(e=function(){goatcounter.count({event:!0,path:o.dataset.goatcounterClick||o.name||o.id||"",title:o.dataset.goatcounterTitle||o.title||(o.innerHTML||"").substr(0,200)||"",referrer:o.dataset.goatcounterReferrer||o.dataset.goatcounterReferral||""})},(o=t).addEventListener("click",e,!1),t.addEventListener("auxclick",e,!1),t.dataset.goatcounterBound="true")})},window.goatcounter.visit_count=function(n){i(function(){(n=n||{}).type=n.type||"html",n.append=n.append||"body",n.path=n.path||l(),n.attr=n.attr||{width:"200",height:n.no_branding?"60":"80"},n.attr.src=a()+"er/"+encodeURIComponent(n.path)+"."+n.type+"?",n.no_branding&&(n.attr.src+="&no_branding=1"),n.style&&(n.attr.src+="&style="+encodeURIComponent(n.style));var t={png:"img",svg:"img",html:"iframe"}[n.type];if(!t)return r("visit_count: unknown type: "+n.type),0;"html"===n.type&&(n.attr.frameborder="0",n.attr.scrolling="no");var e,o=document.createElement(t);for(e in n.attr)o.setAttribute(e,n.attr[e]);t=document.querySelector(n.append);if(!t)return r("visit_count: append not found: "+n.append),0;t.appendChild(o)})},"#toggle-goatcounter"===location.hash&&("t"===localStorage.getItem("skipgc")?(localStorage.removeItem("skipgc","t"),alert("GoatCounter tracking is now ENABLED in this browser.")):(localStorage.setItem("skipgc","t"),alert("GoatCounter tracking is now DISABLED in this browser until "+location+" is loaded again."))),goatcounter.no_onload||i(function(){goatcounter.count(),goatcounter.no_events||goatcounter.bind_events()})}();
+;(function() {
+	'use strict';
+
+	if (window.goatcounter && window.goatcounter.vars)  // Compatibility with very old version; do not use.
+		window.goatcounter = window.goatcounter.vars
+	else
+		window.goatcounter = window.goatcounter || {}
+
+	// Load settings from data-goatcounter-settings.
+	var s = document.querySelector('script[data-goatcounter]')
+	if (s && s.dataset.goatcounterSettings) {
+		try         { var set = JSON.parse(s.dataset.goatcounterSettings) }
+		catch (err) { console.error('invalid JSON in data-goatcounter-settings: ' + err) }
+		for (var k in set)
+			if (['no_onload', 'no_events', 'allow_local', 'allow_frame', 'path', 'title', 'referrer', 'event'].indexOf(k) > -1)
+				window.goatcounter[k] = set[k]
+	}
+
+	// Get all data we're going to send off to the counter endpoint.
+	var get_data = function(vars) {
+		var data = {
+			p: (vars.path     === undefined ? goatcounter.path     : vars.path),
+			r: (vars.referrer === undefined ? goatcounter.referrer : vars.referrer),
+			t: (vars.title    === undefined ? goatcounter.title    : vars.title),
+			e: !!(vars.event || goatcounter.event),
+			s: [window.screen.width, window.screen.height, (window.devicePixelRatio || 1)],
+			b: is_bot(),
+			q: location.search,
+		}
+
+		var rcb, pcb, tcb  // Save callbacks to apply later.
+		if (typeof(data.r) === 'function') rcb = data.r
+		if (typeof(data.t) === 'function') tcb = data.t
+		if (typeof(data.p) === 'function') pcb = data.p
+
+		if (is_empty(data.r)) data.r = document.referrer
+		if (is_empty(data.t)) data.t = document.title
+		if (is_empty(data.p)) data.p = get_path()
+
+		if (rcb) data.r = rcb(data.r)
+		if (tcb) data.t = tcb(data.t)
+		if (pcb) data.p = pcb(data.p)
+		return data
+	}
+
+	// Check if a value is "empty" for the purpose of get_data().
+	var is_empty = function(v) { return v === null || v === undefined || typeof(v) === 'function' }
+
+	// See if this looks like a bot; there is some additional filtering on the
+	// backend, but these properties can't be fetched from there.
+	var is_bot = function() {
+		// Headless browsers are probably a bot.
+		var w = window, d = document
+		if (w.callPhantom || w._phantom || w.phantom)
+			return 150
+		if (w.__nightmare)
+			return 151
+		if (d.__selenium_unwrapped || d.__webdriver_evaluate || d.__driver_evaluate)
+			return 152
+		if (navigator.webdriver)
+			return 153
+		return 0
+	}
+
+	// Object to urlencoded string, starting with a ?.
+	var urlencode = function(obj) {
+		var p = []
+		for (var k in obj)
+			if (obj[k] !== '' && obj[k] !== null && obj[k] !== undefined && obj[k] !== false)
+				p.push(encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
+		return '?' + p.join('&')
+	}
+
+	// Show a warning in the console.
+	var warn = function(msg) {
+		if (console && 'warn' in console)
+			console.warn('goatcounter: ' + msg)
+	}
+
+	// Get the endpoint to send requests to.
+	var get_endpoint = function() {
+		var s = document.querySelector('script[data-goatcounter]')
+		if (s && s.dataset.goatcounter)
+			return s.dataset.goatcounter
+		return (goatcounter.endpoint || window.counter)  // counter is for compat; don't use.
+	}
+
+	// Get current path.
+	var get_path = function() {
+		var loc = location,
+			c = document.querySelector('link[rel="canonical"][href]')
+		if (c) {  // May be relative or point to different domain.
+			var a = document.createElement('a')
+			a.href = c.href
+			if (a.hostname.replace(/^www\./, '') === location.hostname.replace(/^www\./, ''))
+				loc = a
+		}
+		return (loc.pathname + loc.search) || '/'
+	}
+
+	// Run function after DOM is loaded.
+	var on_load = function(f) {
+		if (document.body === null)
+			document.addEventListener('DOMContentLoaded', function() { f() }, false)
+		else
+			f()
+	}
+
+	// Filter some requests that we (probably) don't want to count.
+	goatcounter.filter = function() {
+		if ('visibilityState' in document && (document.visibilityState === 'prerender' || document.visibilityState === 'hidden'))
+			return 'visibilityState'
+		if (!goatcounter.allow_frame && location !== parent.location)
+			return 'frame'
+		if (!goatcounter.allow_local && location.hostname.match(/(localhost$|^127\.|^10\.|^172\.(1[6-9]|2[0-9]|3[0-1])\.|^192\.168\.)/))
+			return 'localhost'
+		if (!goatcounter.allow_local && location.protocol === 'file:')
+			return 'localfile'
+		if (localStorage && localStorage.getItem('skipgc') === 't')
+			return 'disabled with #toggle-goatcounter'
+		return false
+	}
+
+	// Get URL to send to GoatCounter.
+	window.goatcounter.url = function(vars) {
+		var data = get_data(vars || {})
+		if (data.p === null)  // null from user callback.
+			return
+		data.rnd = Math.random().toString(36).substr(2, 5)  // Browsers don't always listen to Cache-Control.
+
+		var endpoint = get_endpoint()
+		if (!endpoint)
+			return warn('no endpoint found')
+
+		return endpoint + urlencode(data)
+	}
+
+	// Count a hit.
+	window.goatcounter.count = function(vars) {
+		var f = goatcounter.filter()
+		if (f)
+			return warn('not counting because of: ' + f)
+
+		var url = goatcounter.url(vars)
+		if (!url)
+			return warn('not counting because path callback returned null')
+
+		var img = document.createElement('img')
+		img.src = url
+		img.style.position = 'absolute'  // Affect layout less.
+		img.setAttribute('alt', '')
+		img.setAttribute('aria-hidden', 'true')
+
+		var rm = function() { if (img && img.parentNode) img.parentNode.removeChild(img) }
+		setTimeout(rm, 10000)  // In case the onload isn't triggered.
+		img.addEventListener('load', rm, false)
+		document.body.appendChild(img)
+	}
+
+	// Get a query parameter.
+	window.goatcounter.get_query = function(name) {
+		var s = location.search.substr(1).split('&')
+		for (var i = 0; i < s.length; i++)
+			if (s[i].toLowerCase().indexOf(name.toLowerCase() + '=') === 0)
+				return s[i].substr(name.length + 1)
+	}
+
+	// Track click events.
+	window.goatcounter.bind_events = function() {
+		if (!document.querySelectorAll)  // Just in case someone uses an ancient browser.
+			return
+
+		var send = function(elem) {
+			return function() {
+				goatcounter.count({
+					event:    true,
+					path:     (elem.dataset.goatcounterClick || elem.name || elem.id || ''),
+					title:    (elem.dataset.goatcounterTitle || elem.title || (elem.innerHTML || '').substr(0, 200) || ''),
+					referrer: (elem.dataset.goatcounterReferrer || elem.dataset.goatcounterReferral || ''),
+				})
+			}
+		}
+
+		Array.prototype.slice.call(document.querySelectorAll("*[data-goatcounter-click]")).forEach(function(elem) {
+			if (elem.dataset.goatcounterBound)
+				return
+			var f = send(elem)
+			elem.addEventListener('click', f, false)
+			elem.addEventListener('auxclick', f, false)  // Middle click.
+			elem.dataset.goatcounterBound = 'true'
+		})
+	}
+
+	// Add a "visitor counter" frame or image.
+	window.goatcounter.visit_count = function(opt) {
+		on_load(function() {
+			opt        = opt        || {}
+			opt.type   = opt.type   || 'html'
+			opt.append = opt.append || 'body'
+			opt.path   = opt.path   || get_path()
+			opt.attr   = opt.attr   || {width: '200', height: (opt.no_branding ? '60' : '80')}
+
+			opt.attr['src'] = get_endpoint() + 'er/' + encodeURIComponent(opt.path) + '.' + opt.type + '?'
+			if (opt.no_branding) opt.attr['src'] += '&no_branding=1'
+			if (opt.style)       opt.attr['src'] += '&style=' + encodeURIComponent(opt.style)
+
+			var tag = {png: 'img', svg: 'img', html: 'iframe'}[opt.type]
+			if (!tag)
+				return warn('visit_count: unknown type: ' + opt.type)
+
+			if (opt.type === 'html') {
+				opt.attr['frameborder'] = '0'
+				opt.attr['scrolling']   = 'no'
+			}
+
+			var d = document.createElement(tag)
+			for (var k in opt.attr)
+				d.setAttribute(k, opt.attr[k])
+
+			var p = document.querySelector(opt.append)
+			if (!p)
+				return warn('visit_count: append not found: ' + opt.append)
+			p.appendChild(d)
+		})
+	}
+
+	// Make it easy to skip your own views.
+	if (location.hash === '#toggle-goatcounter') {
+		if (localStorage.getItem('skipgc') === 't') {
+			localStorage.removeItem('skipgc', 't')
+			alert('GoatCounter tracking is now ENABLED in this browser.')
+		}
+		else {
+			localStorage.setItem('skipgc', 't')
+			alert('GoatCounter tracking is now DISABLED in this browser until ' + location + ' is loaded again.')
+		}
+	}
+
+	if (!goatcounter.no_onload)
+		on_load(function() {
+			goatcounter.count()
+			if (!goatcounter.no_events)
+				goatcounter.bind_events()
+		})
+})();
