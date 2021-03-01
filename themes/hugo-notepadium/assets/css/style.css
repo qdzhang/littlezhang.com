@@ -302,7 +302,7 @@ table {
     margin-right:10px;
     background-color: var(--block-background-color);
     box-shadow: var(--box-shadow);
-    max-height: 500px;
+    max-height: 85vh;
     overflow-y: auto;
 }
 
