@@ -1,16 +1,14 @@
-<section id="header" class="header max-body-width">
-    <div class="header-wrap">
-        <div class="header-left-side"><a class="home" href="{{- `/` | relURL -}}">
+<section id="header" class="header">
+        <div class="header-left"><a href="{{- `/` | relURL -}}">
             {{- $logo := .Site.Params.logo -}}
             {{- if $logo -}}
                 <img class="site-logo" src="{{- $logo | relURL -}}" alt />
             {{- end -}}
             <p class="site-name">{{- .Site.Title -}}</p></a>
         </div>
-        <div class="header-right-side">
+        <div class="header-right">
             {{- partial "navigation-items.html" .Site.Params.nav -}}
         </div>
-    </div>
     {{- with .Site.Params.slogan -}}
         <div class="site-slogan"><p class="title">{{- . | safeHTML -}}</p></div>
     {{- end -}}

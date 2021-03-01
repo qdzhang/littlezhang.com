@@ -1,7 +1,6 @@
 {{- define "main" -}}
 {{- $justify := false -}}
 {{- if eq .Params.justify true -}} {{- $justify = true -}} {{- end -}}
-<div class="article-grid-box">
 <div class="article-containter">
 <section class="article-header" {{- if $justify -}}style="text-align: justify;" {{- end -}}>
     <h1>{{- .Title | safeHTML -}}</h1>
@@ -14,8 +13,6 @@
 <article class="markdown-body" {{- if $justify -}}style="text-align: justify;" {{- end -}}>
     {{- .Content -}}
 </article>
-</div>
-{{- partial "toc.html" . -}}
 </div>
 {{- partial "article-license.html" . -}}
 {{- partial "article-bottom-navigation.html" . -}}
