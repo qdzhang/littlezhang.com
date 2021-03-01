@@ -85,7 +85,7 @@ table {
   padding: .95em;
   border-radius: 6px;
   border-left: var(--blockquote-border-left);
-  background-color: var(--blockquote-border-background-color);
+  background-color: var(--block-background-color);
 }
 
 .markdown-body blockquote:before,
@@ -299,6 +299,9 @@ table {
     align-self: start;
     padding: 10px;
     font-size: 14px;
+    margin-right:10px;
+    background-color: var(--block-background-color);
+    box-shadow: var(--box-shadow);
 }
 
 .toc-title {
