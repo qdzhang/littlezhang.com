@@ -8,7 +8,6 @@ pre {
   word-wrap: normal;
   white-space: pre;
   border-radius: 3px;
-  border: 1px solid #eee;
   -o-tab-size: 4;
   -moz-tab-size: 4;
   tab-size: 4;
@@ -196,63 +195,6 @@ table {
 .markdown-body .highlight {
   margin-top: 0;
   margin-bottom: 20px;
-}
-
-.markdown-body .highlight .chroma {
-  margin: 0;
-}
-
-.markdown-body .chroma .lntable {
-  display: table;
-  table-layout: auto;
-  width: 100%;
-  font-size: 13.6px;
-  border-radius: 3px;
-  border: 1px solid #eee;
-}
-
-.markdown-body .chroma .lntable .lntd {
-  min-width: 0;
-  max-width: 50px;
-  width: 30px;
-}
-
-.markdown-body .chroma .lntable tr {
-  border: 0;
-}
-
-.markdown-body .chroma .lntable tr>td:last-child {
-  width: auto;
-}
-
-.markdown-body .chroma .lntable tr>td:last-child>pre {
-  padding-left: 0;
-}
-
-.markdown-body .chroma .lntable .lntd .lnt {
-  display: block;
-  text-align: right;
-  margin: 0;
-  padding: 0;
-  overflow: visible;
-  cursor: default;
-
-  /* Prevent selection */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.markdown-body .chroma .lntable pre {
-  font-size: inherit;
-  border-radius: 0;
-  border: 0;
-  margin: 0;
-  width: 100%;
-  overflow: auto;
 }
 
 .article-header {
