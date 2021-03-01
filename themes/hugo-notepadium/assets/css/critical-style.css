@@ -9,39 +9,37 @@ html {
     font-size: 17px;
     font-weight: 400;
     line-height: 1.7;
-    scroll-behavior: smooth
-}
-
-
-html {
+    scroll-behavior: smooth;
     transition: color 300ms, background-color 300ms;
 }
 
-html[data-theme='dark'] {
-    background: #001d2d;
-    filter: invert(1) hue-rotate(180deg)
-}
-
 html[data-theme='dark'] img {
-filter: invert(1) hue-rotate(180deg);
-opacity: .65;
-transition: opacity .5s ease-in-out;
+    opacity: .65;
+    transition: opacity .5s ease-in-out;
 }
 
 html {
     --site-name-color: #3f4b67;
     --color-primary: #005ab4;
     --link-underline: #90cff9;
-    --blockquote-border-left: 6px solid #5176bf;
+    --blockquote-border-left: 6px solid #0051a2;
     --block-background-color: #f7faff;
     --pag-background-color: rgba(0, 122, 255, .5);
     --box-shadow: 1px 1px 2px rgba(0,0,0,.125);
+    --title-color: #303033;
+    --body-color: #444;
 }
 
 html[data-theme='dark'] {
+    background: #181818;
+    --site-name-color: #4d8ccb;
+    --color-primary: #99bde1;
+    --link-underline: #0051a2;
     --blockquote-border-left: 6px solid #5176bf;
-    --block-background-color: #b7e3ff;
+    --block-background-color: #002c58;
     --box-shadow: none;
+    --title-color: #dadada;
+    --body-color: #e9e9e9;
 }
 
 h1,
@@ -66,6 +64,10 @@ h2 {
 
 h3 {
   font-size: 22px;
+}
+
+section > h1 {
+    color: var(--title-color);
 }
 
 a {
@@ -168,7 +170,7 @@ html[data-theme='dark'] .dark-hidden{
 .note-date,.note-content {
     font-size: 15px;
     text-decoration: none;
-    color: var(--site-name-color);
+    color: var(--body-color);
 }
 
 .note-content,.note-imgs,.note-labels {
@@ -203,6 +205,7 @@ html[data-theme='dark'] .dark-hidden{
 
 .footer-wrap {
     text-align: center;
+    color: var(--body-color);
 }
 
 .tag-cloud {
@@ -221,7 +224,7 @@ overflow-wrap: break-word;
 .archive-year {
     font-size: 20px;
     font-weight: 800;
-    color: #303033;
+    color: var(--title-color);
     margin-top: 20px;
     margin-bottom: 10px;
 }
@@ -232,6 +235,11 @@ overflow-wrap: break-word;
 
 .archive-date {
     flex: 0 0 100px;
+    color: var(--title-color);
+}
+
+.archive-text {
+    color: var(--body-color);
 }
 
 ul.archive-list li {
@@ -253,7 +261,7 @@ ul.archive-list li {
 }
 
 .markdown-body {
-    color: #444
+    color: var(--body-color); 
 }
 
 .markdown-body p {
@@ -292,5 +300,5 @@ ul.archive-list li {
 
 .pagination ul li a.active {
     background-color: var(--color-primary);
-    color: #fff
+    color: var(--block-background-color);
 }
