@@ -291,3 +291,45 @@ table {
 .footer-pic {
     margin: 10px 0 0 0;
 }
+
+.toc {
+    grid-column: 3 / 4;
+    position: sticky;
+    top: 10px;
+    align-self: start;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.toc-title {
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin-left: 1em;
+    padding-left: 0;
+}
+
+nav ul li a{
+  color: #3f4b67;
+  transition: all 100ms ease-in-out;
+  text-decoration: none;
+}
+
+nav ul li.active > a,
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #06c;
+  text-decoration: none;
+  padding-left: 7px;
+  border-left: 2px solid #06c;
+}
+
+@media (max-width: 1080px) {
+  .toc {
+      display: none;
+  }
+}
