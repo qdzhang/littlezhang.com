@@ -81,7 +81,7 @@ a:hover {
     grid-column-gap: 32px;
 }
 
-.wrapper > * {
+.wrapper > section {
     grid-column: 2;
 }
 
@@ -236,9 +236,6 @@ ul.archive-list li {
 }
 
 .article-containter {
-    background-color: var(--note-background-color);
-    border-radius: 6px;
-    box-shadow: var(--note-box-shadow);
     margin-bottom: 20px;
 }
 
