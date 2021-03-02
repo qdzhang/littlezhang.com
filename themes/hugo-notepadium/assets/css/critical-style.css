@@ -1,4 +1,4 @@
-*, *::before, *::after {
+*, ::before, ::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +10,9 @@ html {
     font-weight: 400;
     line-height: 1.7;
     scroll-behavior: smooth;
-    transition: color 300ms, background-color 300ms;
+    transition: color .3s, background-color .3s;
+    word-wrap: break-word;
+    -webkit-text-size-adjust: 100%;
 }
 
 html[data-theme='dark'] img {

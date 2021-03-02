@@ -40,6 +40,8 @@ pre>samp {
 table {
     border-spacing: 0;
     border-collapse: collapse;
+    text-indent: 0;
+	border-color: inherit;
 }
 
 .markdown-body blockquote,
