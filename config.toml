@@ -1,6 +1,6 @@
 baseURL = "https://www.littlezhang.com/"
 title = "理头张的博客"
-theme = ["hugo-cloak-email", "hugo-notice", "hugo-notepadium"]
+theme = ["hugo-cloak-email", "hugo-notice"]
 copyright = "©2017-2021 理头张"
 
 languageCode = "zh-cn"
@@ -16,6 +16,11 @@ enableEmoji = true
 
 # Google Analytics
 #googleAnalytics = "UA-123-45"
+
+
+[module]
+  [[module.imports]]
+    path = "github.com/qdzhang/hugo-notepadium-mod"
 
 [markup.highlight]
 codeFences = true
