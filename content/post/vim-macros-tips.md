@@ -18,4 +18,4 @@ Show the tip first:
 If you record a macro that manipulates buffer frequently, use `vim --clean` to start a "clean" vim, and then use the macro.
 {{< /notice >}}
 
-It is a very very simple tip, but helped me a lot yesterday. I recorded a macro to exchange two word-lines in a long text file. Repeating the macro more than 50000 lines is really slow. A few minutes later, I got some messages from vim then found the culprit. There were too many autocmds and plugins slowing current buffer. After I restart Vim with `vim --clean`, the whole progress was lightning fast.
+It is a very very simple tip, but helped me a lot yesterday. I recorded a macro to exchange two word-lines in a long text file. Repeating the macro more than 50000 lines is really slow. A few minutes later, I got some messages from vim then found the culprit. There were too many autocmds and plugins slowing current buffer. After restarting Vim with `vim --clean`, the whole progress was lightning fast.
