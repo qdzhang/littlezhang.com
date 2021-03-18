@@ -16,7 +16,7 @@ author = "Hugo Authors"
 
 ## Thanks to
 
-网站由 [Hugo](https://gohugo.io/) 构建，采用基于 [notepadium](https://github.com/cntrump/hugo-notepadium) 修改的 [notepadium-mod](https://github.com/qdzhang/hugo-notepadium-mod)主题。网站图标来自 [ionchan](https://ionchan.com/icon-character-boys-girls/)，图标版权归原作者所有。
+网站由 [Hugo](https://gohugo.io/) 构建，采用基于 [notepadium](https://github.com/cntrump/hugo-notepadium) 修改的 [notepadium-mod](https://github.com/qdzhang/hugo-notepadium-mod) 主题。网站图标来自 [ionchan](https://ionchan.com/icon-character-boys-girls/)，图标版权归原作者所有。
 
 ## License
 
