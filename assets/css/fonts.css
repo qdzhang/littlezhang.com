@@ -14,14 +14,3 @@ samp {
   font-family: 'Source Code Pro', Menlo, Consolas, 'Liberation Mono', monospace;
   font-weight: 500;
 }
-
-section .DaysToOffload {
-    background-color: #f7faff;
-    border: 2px solid #0051a2;
-    padding: 20px;
-}
-
-.days-number {
-    font-weight: 600;
-    color: #c7254e;
-}
