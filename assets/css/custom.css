@@ -1,7 +1,16 @@
+html {
+    --blockquote-border: 2px solid #0051a2;
+}
+
+html[data-theme='dark'] {
+    --blockquote-border: 2px solid #5176bf;
+}
+
 section .DaysToOffload {
-    background-color: #f7faff;
-    border: 2px solid #0051a2;
+    background-color: var(--block-background-color);
+    border: var(--blockquote-border);
     padding: 20px;
+    margin-top: 50px;
 }
 
 .days-number {
