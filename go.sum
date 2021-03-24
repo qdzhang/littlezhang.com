@@ -1,8 +1,4 @@
-github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210318064300-63c9bb5e75a5 h1:Ka/TgVzuwVBcxfPDRVCsOTnHzyULkxrNKVy0CyUsSqk=
-github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210318064300-63c9bb5e75a5/go.mod h1:+F+2e1z6IcrauIaRUdts9ELFIEAqz68uK+rTuSNN+6Y=
-github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210323120444-4fdde2acc74b h1:5vPGOYvLEnTxV9u92btFVTnBwxB1MkevDKQ1y7899A4=
-github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210323120444-4fdde2acc74b/go.mod h1:+F+2e1z6IcrauIaRUdts9ELFIEAqz68uK+rTuSNN+6Y=
-github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210324005626-4b0b6600b8ef h1:ykjXW7nW7MEOodMKjJig/YtOxITCQp6yI7ZUVepnJUk=
-github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210324005626-4b0b6600b8ef/go.mod h1:+F+2e1z6IcrauIaRUdts9ELFIEAqz68uK+rTuSNN+6Y=
+github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210324093536-da2a91cc57c2 h1:bn9bTKBO3gcUJR5jCmzIMvMhgtxPUk7iKSoVteNXK7U=
+github.com/qdzhang/hugo-notepadium-mod v0.0.0-20210324093536-da2a91cc57c2/go.mod h1:+F+2e1z6IcrauIaRUdts9ELFIEAqz68uK+rTuSNN+6Y=
 github.com/qdzhang/hugo-notice v0.0.0-20210305112721-2a63ff9037cb h1:7Lrio6jxTg7H+0oCKoP4X2lDf8KdXCKw4ITpRpXtXDU=
 github.com/qdzhang/hugo-notice v0.0.0-20210305112721-2a63ff9037cb/go.mod h1:M0KNrwGpyU7kKMmCThwh9TKH4trbeHlOntMpRh5VJ50=
