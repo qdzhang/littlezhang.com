@@ -55,6 +55,17 @@ enableEmoji = true
     [minify.tdewolff.xml]
       keepWhitespace = false
 
+[mediaTypes]
+[mediaTypes."text/toml"]
+suffixes = ["toml"]
+
+[outputFormats]
+[outputFormats.TOML]
+mediaType = "text/toml"
+
+[outputs]
+  home = ["HTML", "RSS", "TOML"]
+
 [markup.highlight]
 codeFences = true
 guessSyntax = true
@@ -79,6 +90,7 @@ unsafe = true  # enable raw HTML in Markdown
   category = "categories"
   series = "series"
   tag = "tags"
+  search = "search"
 
 [params]
 author = "理头张"
@@ -117,6 +129,10 @@ url = "/series/"
 [[params.nav.custom]]
 title = "归档"
 url = "/archives/"
+
+[[params.nav.custom]]
+title = "搜索"
+url = "/search/"
 
 [[params.nav.custom]]
 title = "关于"
