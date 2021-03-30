@@ -1,16 +1,9 @@
-@font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'), url(https://fonts.gstatic.com/s/sourcecodepro/v11/HI_XiYsKILxRpg3hIP6sJ7fM7PqtzsjDs-cq.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcecodepro/v11/HI_XiYsKILxRpg3hIP6sJ7fM7PqtzsjDs-cv.ttf) format('truetype');
-}
-
 code,
 pre,
 tt,
 kbd,
 samp {
-  font-family: 'Source Code Pro', Menlo, Consolas, 'Liberation Mono', monospace;
+  font-family: SFMono-Regular,DejaVu Sans Mono,Menlo,Consolas,Liberation Mono,monospace;
   font-weight: 500;
+  line-height: 20px;
 }
