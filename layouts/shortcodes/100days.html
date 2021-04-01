@@ -1,3 +1,25 @@
+<style type="text/css" media="screen">
+html {
+    --blockquote-border: 2px solid #0051a2;
+}
+
+html[data-theme='dark'] {
+    --blockquote-border: 2px solid #5176bf;
+}
+
+section .DaysToOffload {
+    background-color: var(--block-background-color);
+    border: var(--blockquote-border);
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.days-number {
+    font-weight: 600;
+    color: #c7254e;
+}
+</style>
+
 <section class="DaysToOffload">
     This is post number <span class="days-number">{{ .Get "day"}}</span> in my 2021 <a href="https://100daystooffload.com/" target="_blank">100 Days To Offload challenge</a>.   
 </section>
