@@ -24,47 +24,49 @@ theme = ["my-shortcodes", "base-theme", "hyde"]
 
 ## hugo-notice  
 
-[hugo-notice](https://github.com/martignoni/hugo-notice) 给 Hugo 网站增加了一组提示框。使用 shortcodes 实现下面的四个等级的提示框。
+~~[hugo-notice](https://github.com/martignoni/hugo-notice) 给 Hugo 网站增加了一组提示框。使用 shortcodes 实现下面的四个等级的提示框。~~
+
+我修改的 [notepadium-mod 主题](https://github.com/qdzhang/hugo-notepadium-mod)里面自带了提示框，所以已经不用 hugo-notice 了。效果如下：
 
 ```
-{{</* notice warning */>}}
-这是一条警告
-{{</* /notice */>}}
-```
-
-{{< notice warning >}}
-这是一条警告
-{{< /notice >}}
-
-```
-{{</* notice note */>}}
-这是一条注释
-{{</* /notice */>}}
-```
-
-{{< notice nnote >}}
-这是一条注释
-{{< /notice >}}
-
-```
-{{</* notice info */>}}
+{{</* tips info */>}}
 这是一条信息
-{{</* /notice */>}}
+{{</* /tips */>}}
 ```
 
-{{< notice info >}}
+{{< tips info >}}
 这是一条信息
-{{< /notice >}}
+{{< /tips >}}
 
 ```
-{{</* notice tip */>}}
-这是一条提示
-{{</* /notice */>}}
+{{</* tips warn */>}}
+这是一条警告
+{{</* /tips */>}}
 ```
 
-{{< notice tip >}}
-这是一条提示
-{{< /notice >}}
+{{< tips warn >}}
+这是一条警告
+{{< /tips >}}
+
+```
+{{</* tips error */>}}
+这是一条错误
+{{</* /tips */>}}
+```
+
+{{< tips error >}}
+这是一条错误
+{{< /tips >}}
+
+```
+{{</* tips success */>}}
+这是一条成功的提示
+{{</* /tips */>}}
+```
+
+{{< tips success >}}
+这是一条成功的提示
+{{< /tips >}}
 
 ## hugo-cloak-email
 

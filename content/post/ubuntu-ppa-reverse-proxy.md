@@ -16,8 +16,8 @@ Ubuntu 的 [PPA](https://launchpad.net/ubuntu/+ppas)（Personal Package Archives
 
 使用中科大提供的反向代理可以提高 PPA 的下载速度。在 `/etc/apt/sources.list.d` 目录下可以找到每一个 PPA 添加的 `list` 文件，把其中的 `http://ppa.launchpad.net` 替换为 `https://launchpad.proxy.ustclug.org`。
 
-{{< notice tip >}}
+{{< tips error>}}
 一定要替换成 **`https`** ！
-{{< /notice >}}
+{{< /tips >}}
 
 在 [USTC 镜像网站上](https://mirrors.ustc.edu.cn/)可以查看反向代理列表，像 docker、npm 等等都可以使用 USTC 的反向代理。

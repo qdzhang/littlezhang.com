@@ -27,9 +27,9 @@ draft: false
 ![](https://res.cloudinary.com/dny1wymwm/image/upload/v1586341034/ID6fTMOwlp_gkvozf.png)
 
 为保持版本一致，我的本机上的 Python 版本也要是 3.8 版本的。
-{{< notice info >}}
+{{< tips warn>}}
 在本文发布时，Anaconda 中的 Python 版本为 3.7，所以要么换用编译版本为 3.7 的 Vim，要么需要在 [Python 官网](https://python.org)中下载 3.8 版本的 Python。
-{{< /notice >}}
+{{< /tips >}}
 
 如果上面几条都满足，并且 Python 的环境变量配置正确，这时再下载和使用一些依赖 Python 的插件，应该就不会有问题了。
 
