@@ -27,7 +27,7 @@ enableEmoji = true
   disableHTML = false
   disableJS = false
   disableJSON = false
-  disableSVG = false
+  disableSVG = true
   disableXML = false
   minifyOutput = true
   [minify.tdewolff]
