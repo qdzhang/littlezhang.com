@@ -124,9 +124,5 @@ title = "归档"
 url = "/archives/"
 
 [[params.nav.custom]]
-title = "搜索"
-url = "/search/"
-
-[[params.nav.custom]]
 title = "关于"
 url = "/about/"
