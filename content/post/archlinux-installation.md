@@ -334,3 +334,13 @@ reboot
 ```
 xdg-user-dirs-update  # 生成家目录的文件夹
 ```
+<hr>
+Update:
+
+## 安装后的一些设置
+
+更改笔记本电脑合盖后的行为：修改 `/etc/systemd/logind.conf`
+
+```bash
+HandleLidSwitch=lock  # 把合盖后的行为改为锁屏，如果是休眠的话，有时候会不能正常唤醒
+```
