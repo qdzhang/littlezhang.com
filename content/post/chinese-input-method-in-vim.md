@@ -13,6 +13,12 @@ draft: false
 
 最近看到 jdhao 更新了[两篇](https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/)[博文](https://jdhao.github.io/2021/02/26/IME_inside_vim/)，总结了几种在 Vim 里切换输入法和使用 Vim 自带的补全输入中文的方法。刚好这段时间我也在折腾在 Vim 下的中文输入，在此做一个总结。
 
+<!--more-->
+
+{{< tips info 2021-05-08更新>}}
+最近我又折腾了一下 emacs，用上了 emacs-rime，非常丝滑，比文中我所提到的所有 vim 中的方案都要好。设置好中英文的触发条件，改变了我对中英文混输“效率低下”的看法。看来有时折腾不同工具，也有别样的收获。如果你也想尝试一下 emacs（可以使用 evil 来保持 vim 键位），不妨试一试。
+{{< /tips >}}
+
 ## 1. fcitx.vim 或者 vim-barbaric
 
 [fcitx.vim]() 和 [vim-barbaric]() 是两个 Vim 插件，都可以在离开 `insert` 模式后自动切换为英文输入，再次进入 `insert` 模式后，恢复上次的输入状态。如果是在 Linux 环境下使用的话，两者安装之后基本都是开箱即用，而在 Windows 和 macOS 环境下，vim-barbaric 需要安装额外的依赖，并且需要考虑输入法是否支持，在 `README` 里有详细的说明。在我的机器上，vim-barbaric 要比 fcitx.vim 对 Vim 启动速度的影响更小，其他的使用体验基本一致。
