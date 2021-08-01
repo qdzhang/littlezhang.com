@@ -14,6 +14,8 @@ draft: false
 
 Desktop environments (Gnome, KDE, ...) have an elaborate set of utilities covering almost every aspect of usages. When I started using i3wm, I missed the convenience of power-manager, locking screen, etc. But it is possible to implement them **manually**. This article is written about how auto lock-screen working in i3wm.
 
+<!--more-->
+
 {{< tips warn>}}
 Following introduction may be not concise and clear. If you want to see details about the configuration, my dotfiles is [here](https://github.com/qdzhang/.dotfiles/tree/main/.config/i3/autolock).
 {{< /tips >}}
