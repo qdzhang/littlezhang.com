@@ -21,3 +21,12 @@
 <link rel="preload" href="{{- $coreCSS.RelPermalink -}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}"></noscript>
 <style type="text/css">{{- $criticalCSS.Content | safeCSS -}}</style>
+
+<style type="text/css" media="screen">
+@media (prefers-color-scheme: dark) {
+  {{ partial "css/syntax-dark.css" . | safeCSS }}
+}
+@media (prefers-color-scheme: light) {
+  {{ partial "css/syntax-light.css" . | safeCSS }}
+}
+</style>

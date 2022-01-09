@@ -66,8 +66,7 @@ mediaType = "text/toml"
 [markup.highlight]
 codeFences = true
 guessSyntax = true
-noClasses = true
-style = "dracula"
+noClasses = false
 
 [markup.goldmark.renderer]
 unsafe = true  # enable raw HTML in Markdown
