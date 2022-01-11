@@ -22,6 +22,7 @@
 <noscript><link rel="stylesheet" href="{{- $coreCSS.RelPermalink -}}" integrity="{{- $coreCSS.Data.Integrity -}}"></noscript>
 <style type="text/css">{{- $criticalCSS.Content | safeCSS -}}</style>
 
+{{ if (findRE "<pre" .Content 1) }}
 <style type="text/css" media="screen">
 @media (prefers-color-scheme: dark) {
   {{ partial "css/syntax-dark.css" . | safeCSS }}
@@ -30,3 +31,41 @@
   {{ partial "css/syntax-light.css" . | safeCSS }}
 }
 </style>
+{{ end }}
+
+{{ if (findRE "<kbd" .Content 1) }}
+<style type="text/css" media="screen">
+html {
+  --kbd-box-shadow: #777;
+  --kbd-background: #eee;
+  --kbd-color: #555;
+}
+html[data-theme='dark'] {
+  --kbd-background: black;
+  --kbd-color:#ddd;
+  --kbd-box-shadow: black;
+}
+kbd {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0px 4px;
+  box-shadow: 1px 1px 1px var(--kbd-box-shadow);
+  margin: 2px;
+  font-size: small;
+  vertical-align: text-bottom;
+  background: var(--kbd-background);
+  font-weight: 500;
+  color: var(--kbd-color);
+  cursor: pointer;
+  font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: 1px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</style>
+{{ end }}
