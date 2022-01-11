@@ -1,0 +1,10 @@
+{{ if (findRE "<video" .Content 1) }}
+<script src="//cdn.jsdelivr.net/gh/qdzhang/littlezhang.com/assets/js/yall.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    yall({
+      observeChanges: true,
+    });
+  });
+</script>
+{{ end }}

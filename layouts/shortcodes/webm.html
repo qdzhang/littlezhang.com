@@ -1,0 +1,9 @@
+<video style="width: 100%; height: 100%;"
+       class="lazy"
+       controls
+       preload="none"
+       data-poster="{{ .Get "poster" }}" >
+      <source src="{{ .Get "src" }}" type="video/webm">
+      <p>你的浏览器不支持 Webm 格式的视频。<a href="https://caniuse.com/?search=webm">哪些浏览器支持？</a></p>
+      <p>Sorry, your browser doesn't support webm videos. <a href="https://caniuse.com/?search=webm">Can I use webm?</a></p>
+</video>
