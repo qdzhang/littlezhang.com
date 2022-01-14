@@ -38,7 +38,7 @@ Now open iOS control center, tap on the Screen Mirroring, you can find your Linu
 
 ## 4. Some extra settings
 
-If you have configured [auto lock](https://www.littlezhang.com/2021/04/how-to-auto-lock-screen-in-i3wm/) on Linux, UxPlay will not prevent the desktop becoming idle and it may auto lock after a moment. So there are some extra settings to fix it.
+If you have configured [auto lock]({{< ref "lock-screen-in-i3" >}}) on Linux, UxPlay will not prevent the desktop becoming idle and it may auto lock after a moment. So there are some extra settings to fix it.
 
 We can modify DPMS(Display Power Management Signaling) and screensaver settings with a command.
 

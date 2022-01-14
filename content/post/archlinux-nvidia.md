@@ -12,7 +12,7 @@ markup: md
 draft: false
 ---
 
-之前[安装 Arch Linux](https://www.littlezhang.com/2021/01/archlinux-%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95/) 的时候，我并没有安装 NVIDIA 独显驱动，因为一提到 Linux 下的 NVIDIA 驱动，脑海中最先浮现的便是 Linus 竖中指的画面。况且笔记本上还有 Intel 的集成显卡，在 Linux 下的驱动支持极佳，视频什么的足以应付。
+之前[安装 Arch Linux]({{< ref "archlinux-installation" >}}) 的时候，我并没有安装 NVIDIA 独显驱动，因为一提到 Linux 下的 NVIDIA 驱动，脑海中最先浮现的便是 Linus 竖中指的画面。况且笔记本上还有 Intel 的集成显卡，在 Linux 下的驱动支持极佳，视频什么的足以应付。
 
 近来突然想玩 Minecraft，毕竟是号称集显也能玩的游戏。Vanilla Minecraft 确实能用集显流畅的跑起来，但是一加光影，就有点难为 UHD 630 了。最终还是决定装上 NVIDIA 的专有驱动。
 
