@@ -38,7 +38,13 @@ sudo pacman-key --add /path/to/downloaded/keyfile
 sudo pacman-key --lsign-key keyid
 ```
 
-之后搜索安装 `linux-lts510` 就可以了。不过这个包似乎没有注册 pacman hook ，安装后需要我们手动更新 grub 设置（如果你用的是其他的 bootloader ，就用相应的方法）：
+之后刷新仓库，安装 `linux-lts510` 和 `linux-lts510-header`。
+
+```bash
+sudo pacman -S linux-lts510 linux-lts510-header
+```
+
+不过这个 kernel 似乎没有注册 pacman hook ，安装后需要我们手动更新 grub 设置（如果你用的是其他的 bootloader ，就用相应的方法）：
 
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
