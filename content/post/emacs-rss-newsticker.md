@@ -1,7 +1,7 @@
 ---
 title: "在 Emacs 中使用 Newsticker RSS 阅读器"
 date: 2022-01-08
-lastmod:
+lastmod: 2022-01-15
 description: Emacs 里的很多的功能经常有多种的选择，比如邮件客户端，RSS 阅读器等等，elfeed 经常被 emacser 们所讨论。但是其实 Emacs 里已经自带了一个 RSS 阅读器，即 Newsticker 。本文就着重讨论如何配置 Newsticker 。
 tags: [emacs]
 categories: [emacs]
@@ -16,7 +16,7 @@ draft: false
 
 Newsticker 相比 Elfeed 有两个优点：
 1. Emacs 自带，不用额外下载，可以满足一些用户的 vanilla 需求（虽然也有很多用户觉得应该把 Newsticker 从 Emacs 中剔除，因为它助长了 Emacs 的“臃肿”）。
-2. 可以调整为树状布局，看起来更直观。
+2. 可以显示为树状布局，看起来更直观。
 
 ![](https://res.cloudinary.com/dny1wymwm/image/upload/v1641649041/2022-01-08_212535_358131644_id7aas.png)
 
@@ -28,6 +28,19 @@ Newsticker 相比 Elfeed 有两个优点：
 ```elisp
 (require 'newsticker)
 ```
+
+Newsticker 默认是树状布局（如上面的图），也可以调整为像 Elfeed 类似，所有 feed 内容显示在一个 buffer 里：
+
+```elisp
+;;; 默认为 `newsticker-treeview'
+(setq newsticker-frontend 'newsticker-plainview)
+```
+
+![](https://res.cloudinary.com/dny1wymwm/image/upload/v1642226161/newsticker-plainview_u6g8tv.png)
+
+但是使用 plainview 会比 treeview 更慢，尤其是有大量订阅源时。因此[文档](https://www.gnu.org/software/emacs/manual/html_mono/newsticker.html#Frontends)中建议：
+
+> when you have subscribed to a large amount of feeds you may want to give the Treeview a try.
 
 设置 Newsticker 不在后台自动刷新：
 ```elisp

@@ -1,7 +1,7 @@
 ---
 title: "Arch Linux 使用“更旧”的内核"
 date: 2022-01-14
-lastmod:
+lastmod: 2022-01-15
 description: Arch Linux 官方维护的 lts 内核进行一些大版本更新时，也经常会带来一些小的问题。那么如何才能留在一个相对更稳定、更旧的内核版本呢？
 tags: [linux]
 categories: [linux]
@@ -51,3 +51,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 并且根据 [Arch Wiki](https://wiki.archlinux.org/title/GRUB/Tips_and_tricks#Recall_previous_entry) 设置 grub 自动记住上次选择的启动选项，就可以在开机时选择想要使用的 `linux-lts510` 内核，并且在之后记住这一选项了。
+
+*2022-01-15 更新*
+
+改用 `linux-lts510` 内核后，Emacs 的启动时间变短了，不知道是什么神秘优化，亦或是别的神奇的原因。
