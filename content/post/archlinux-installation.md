@@ -1,6 +1,7 @@
 ---
 title: "Archlinux 安装记录"
 date: 2021-01-14 
+lastmod: 2022-01-29
 description: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 tags: [linux, arch]
 categories: [arch]
@@ -10,6 +11,12 @@ math: false
 markup: md
 draft: false
 ---
+
+{{< tips info 2022-01-29 更新>}}
+不知不觉已经使用 Arch Linux 一年多了，中间只有一次“滚挂”的经历，就我的使用体验来说，Arch Linux 其实还挺稳的，这里的“稳”不是指像之前的 CentOS 那样，包的版本稳定，而更多的是“可靠”。Reddit 上经常会有 Arch Linux 是否稳定之类的讨论，我比较认同其中的一个观点：Arch 不 stable ，它的包经常升级，但是足够 reliable 。
+
+文章的部分内容也进行了更新，新增了使用 systemd-boot 的可选步骤。
+{{< /tips >}}
 
 用了很长一段时间的 Windows + WSL2，最终我还是回到了 Linux。之前一直用的是 openSUSE，真真是坚如磐石，包括后来换成 Tumbleweed 源，体验一把滚动发行版的感觉，也依旧稳定。甚至中间隔了近一年没更新，直接 `sudo zypper dup` ，也没出一点问题。唯一一点体验不好的地方，就是源太慢。不过这段时间感觉比我刚开始用 openSUSE 的时候快了很多。后来在 Windows 下发现浏览器和 WSL2 能满足我的大部分需求，没有大量的游戏和文档处理的需求，Windows 独占软件只有 Visual Studio，但得益于 .NET5 的发布，也不是刚需。于是就决定回到 Linux 的怀抱。思来想去，决定装上 Arch。
 
@@ -128,6 +135,12 @@ n
 # last sector: default(就是全盘大小)
 ```
 
+最后确认，写入分区：
+
+```
+w
+```
+
 如果有第二块硬盘，可以为第二块硬盘再建一个分区，挂载到 `/data`。我的第二块硬盘是 HDD，所以我这样单独挂载。
 
 ## 7.格式化分区
@@ -241,6 +254,7 @@ vim /etc/hostname
 ```
 
 文件第一行写入主机名，比如 `arch`
+
 编辑 hosts 文件
 
 ```
@@ -269,7 +283,9 @@ pacman -S grub efibootmgr networkmanager network-manager-applet dialog mtools do
 
 如果前面安装的 linux-lts，这里也要相应安装 linux-lts-headers。
 
-## 18.配置 grub
+## 18.配置 Boot Loader
+
+### 18.1 使用 GRUB
 
 ```
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
@@ -279,6 +295,35 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### 18.2 使用 systemd-boot
+
+给 bootctl 指定路径
+
+```
+bootctl --path=/boot/efi install
+```
+
+如果是在 QEMU 里面安装，想要使用 UEFI 的话，需要安装 `edk2-ovmf` 包，才可以为 QEMU [提供 UEFI 启动选项](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_an_OVMF-based_guest_VM)。
+
+编辑 `/boot/loader/loader.conf`:
+
+```
+default  arch.conf
+timeout  4
+console-mode max
+```
+
+添加启动项，新建 `/boot/loader/entries/arch.conf`:
+
+```
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root="LABEL=arch_os" rw
+# 这里填 root 所在分区，比如我在虚拟机安装，则为 /dev/vda2
 ```
 
 ## 19.开启一些必要的 systemd 服务
