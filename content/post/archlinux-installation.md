@@ -3,6 +3,7 @@ title: "Archlinux 安装记录"
 date: 2021-01-14 
 lastmod: 2022-01-29
 description: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
+summary: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 tags: [linux, arch]
 categories: [arch]
 series: []
