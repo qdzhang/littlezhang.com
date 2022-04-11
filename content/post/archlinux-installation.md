@@ -385,8 +385,14 @@ Update:
 
 ## 安装后的一些设置
 
-更改笔记本电脑合盖后的行为：修改 `/etc/systemd/logind.conf`
+### 更改笔记本电脑合盖后的行为
+
+修改 `/etc/systemd/logind.conf`
 
 ```bash
 HandleLidSwitch=lock  # 把合盖后的行为改为锁屏，如果是休眠的话，有时候会不能正常唤醒
 ```
+
+### 更改 Firefox 的 DPI
+
+在 `about:config` 里修改 `layout.css.devPixelsPerPx` 为 `1.5` 或其他更大、更小数值。

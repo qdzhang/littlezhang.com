@@ -38,6 +38,12 @@ sudo pacman-key --add /path/to/downloaded/keyfile
 sudo pacman-key --lsign-key keyid
 ```
 
+如果之后不再想要使用这个仓库了，可以使用下面的命令删除这个 key ：
+
+```bash
+sudo pacman-key --delete 76C6E477042BFE985CC220BD9C08A255442FAFF0
+```
+
 之后刷新仓库，安装 `linux-lts510` 和 `linux-lts510-header`。
 
 ```bash
