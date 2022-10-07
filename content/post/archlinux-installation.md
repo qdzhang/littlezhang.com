@@ -1,7 +1,7 @@
 ---
 title: "Archlinux 安装记录"
 date: 2021-01-14 
-lastmod: 2022-01-29
+lastmod: 2022-10-07
 description: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 summary: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 tags: [linux, arch]
@@ -333,6 +333,14 @@ systemctl enable NetworkManager
 systemctl enable bluetooth
 ```
 
+如果使用无线网的话，可以把 `wpa_supplicant` 的服务也打开。更详细的设置参见 [Arch Wiki](https://wiki.archlinux.org/title/wpa_supplicant) 。
+
+```
+systemctl enable wpa_supplicant.service
+```
+
+也可以使用 `iwd` 替代 `wpa_supplicant` 作为 NetworkManager 的后端，详细设置参见 [Arch Wiki](https://wiki.archlinux.org/title/NetworkManager#Using_iwd_as_the_Wi-Fi_backend) 。
+
 ## 20.添加普通用户
 
 ```
@@ -396,3 +404,32 @@ HandleLidSwitch=lock  # 把合盖后的行为改为锁屏，如果是休眠的�
 ### 更改 Firefox 的 DPI
 
 在 `about:config` 里修改 `layout.css.devPixelsPerPx` 为 `1.5` 或其他更大、更小数值。
+
+### 设置 NTP 时间同步
+
+使用 `systemd-timesyncd` 。先查看服务是否开启：
+
+```
+systemctl is-enabled systemd-timesyncd.service
+```
+
+如果显示 disabled ，则开启它：
+
+```
+systemctl enabled systemd-timesyncd.service --now
+```
+
+在 `/etc/systemd/timesyncd.conf` 中更改 NTP 服务器（我这里用了阿里云的 NTP 服务器）：
+
+```
+[Time]
+NTP=ntp1.aliyun.com
+FallbackNTP=ntp3.aliyun.com ntp2.aliyun.com 0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+#...
+```
+使用 `timedatectl status` 查看 timesyncd 的状态：
+
+```
+NTP service: active
+```
+即为开启成功。
