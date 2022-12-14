@@ -2,7 +2,7 @@
 title: "Git checkout 的两个替代命令"
 date: 2021-03-22
 description: Git checkout 包含了很多子命令，可以进行分支的操作，也可以进行文件的操作，看起来有一些混乱。Git 2.23 带来的两个新命令 git switch 和 git restore 就对 git checkout 的这些不合常理的用法进行了语义化的替代。
-tags: [git, 100DaysToOffload]
+tags: [git]
 categories: [git]
 series: []
 toc: false
@@ -24,4 +24,3 @@ Git 也因此在 2.23 版本更新中引入了两个新命令：`git switch` 和
 
 需要注意的是，这两个命令推出之初是实验性的，文档也在后续的几个版本略有变化，但上面列举的最常用的两个用法一直没变，而且最近几个版本也没有继续的变化。所以如果你使用的 git 版本够新（v2.23+)，刚开始学习 git 的使用，可以放心地采用更具语义化的、更便于记忆的新命令，不用再困惑于网上的一些教程里一堆混乱的 `git checkout` 命令。如果已经习惯了 `checkout` 的用法，feel free，用你想用的吧。
 
-{{< 100days day=2 >}}
