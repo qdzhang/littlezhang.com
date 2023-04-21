@@ -1,7 +1,7 @@
 ---
 title: "Archlinux 安装记录"
 date: 2021-01-14 
-lastmod: 2022-10-07
+lastmod: 2023-04-21
 description: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 summary: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 tags: [linux, arch]
@@ -35,26 +35,26 @@ draft: false
 ## 1.调整字体
 设置一个大字体，看得更清晰。
 
-```
+```sh
 setfont ter-132n
 ```
 
 ## 2.验证引导方式
 
-```
+```sh
 ls /sys/firmware/efi/efivars
 ```
 
 ## 3.网络连接
 
-```
+```sh
 ip a
 ping baidu.com
 ```
 
 wifi
 
-```
+```sh
 iwctl
 [iwd] device list
 [iwd] station wlan0 scan
@@ -65,7 +65,7 @@ iwctl
 
 ## 4.同步时间
 
-```
+```sh
 timedatectl set-ntp true
 ```
 
@@ -73,7 +73,7 @@ timedatectl set-ntp true
 
 ## 5.选择镜像源(可以放到分区后面进行)
 
-```
+```sh
 vim /etc/pacman.d/mirrorlist
 # 添加 opentuna
 Server = https://opentuna.cn/archlinux/$repo/os/$arch
@@ -86,7 +86,7 @@ Server = https://opentuna.cn/archlinux/$repo/os/$arch
 ## 6.创建分区
 检查现在的分区
 
-```
+```sh
 lsblk
 或
 fdisk -l
@@ -94,19 +94,19 @@ fdisk -l
 
 选择一个需要分区的磁盘（disk）
 
-```
+```sh
 gdisk /dev/sda
 ```
 
 清空当前分区表数据
 
-```
+```sh
 o
 ```
 
 新建一个分区
 
-```
+```sh
 # 创建 efi 分区
 n
 # partition number: default
@@ -118,7 +118,7 @@ L  # 查找 EFI 文件系统
 
 再建一个分区
 
-```
+```sh
 # 创建 root 分区
 n
 # partition number: default
@@ -128,7 +128,7 @@ n
 
 如果想要 home 分区和 root 分区分开，就再建一个分区
 
-```
+```sh
 # 创建 home 分区
 n
 # partition number: default
@@ -138,7 +138,7 @@ n
 
 最后确认，写入分区：
 
-```
+```sh
 w
 ```
 
@@ -146,7 +146,7 @@ w
 
 ## 7.格式化分区
 
-```
+```sh
 mkfs.fat -F32 /dev/[efi partition name]
 mkfs.ext4 /dev/[root partiton name]
 mkfs.ext4 /dev/[home partiton name]
@@ -155,7 +155,7 @@ mkfs.ext4 /dev/[second disk partiton name]
 
 ## 8.挂载分区
 
-```
+```sh
 mount /dev/[root partition name] /mnt  # 挂载root
 mkdir -p /mnt/boot/efi
 mount /dev/[efi partition name] /mnt/boot/efi  # 挂载 efi
@@ -168,13 +168,13 @@ mount /dev/[second disk part] /mnt/data
 
 在 `data` 目录下可以新建用户目录，比如 `/data/username` 建立 symlink 把 ssd 上 `home` 目录下的一些文件夹移动到 hhd 上。如果不行，可以试试 bind mount，在下面[生成分区表](#10.生成分区表)之后修改 fstab，如下:
 
-```
+```sh
 /original/location/here  /copy/of/it/here  none  bind
 ```
 
 ## 9.安装基本包
 
-```
+```sh
 pacstrap /mnt base linux linux-firmware vim intel-ucode  # 如果是 amd 的 CPU，安装 amd-ucode
 ```
 
@@ -182,20 +182,20 @@ pacstrap /mnt base linux linux-firmware vim intel-ucode  # 如果是 amd 的 CPU
 
 ## 10.生成分区表
 
-```
+```sh
 genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab  # 检查 fstab
 ```
 
 ## 11.进入安装系统
 
-```
+```sh
 arch-chroot /mnt
 ```
 
 ## 12.创建 swapfile
 
-```
+```sh
 dd if=/dev/zero of=/swapfile bs=1G count=8 status=progress
 chmod 600 /swapfile
 mkswap /swapfile
@@ -204,14 +204,14 @@ swapon /swapfile
 
 把 swapfile 写入 fstab
 
-```
+```sh
 vim /etc/fstab
 /swapfile none swap defaults 0 0
 ```
 
 ## 13.设置时区
 
-```
+```sh
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc
 ```
@@ -219,7 +219,7 @@ hwclock --systohc
 ## 14.设置 locale
 直接编辑locale文件
 
-```
+```sh
 vim /etc/locale.gen
 ```
 
@@ -232,25 +232,25 @@ vim /etc/locale.gen
 注释掉
 然后执行
 
-```
+```sh
 locale-gen
 ```
 
 创建locale配置文件
 
-```
+```sh
 vim /etc/locale.conf
 ```
 
 在配置文件第一行写入
 
-```
+```sh
 LANG=en_US.UTF-8
 ```
 
 ## 15.设置主机名
 
-```
+```sh
 vim /etc/hostname
 ```
 
@@ -258,13 +258,13 @@ vim /etc/hostname
 
 编辑 hosts 文件
 
-```
+```sh
 vim /etc/hosts
 ```
 
 在末尾添加
 
-```
+```sh
 127.0.0.1	localhost
 ::1		    localhost
 127.0.1.1	arch.localdomain	arch
@@ -272,13 +272,13 @@ vim /etc/hosts
 
 ## 16.设置root密码
 
-```
+```sh
 passwd
 ```
 
 ## 17.安装其他的包
 
-```
+```sh
 pacman -S grub efibootmgr networkmanager network-manager-applet dialog mtools dosfstools NTFS-3G base-devel linux-headers git bluez bluez-utils xdg-utils xdg-user-dirs pulseaudio pulseaudio-alsa pulseaudio-bluetooth pavucontrol alsa-utils noto-fonts-cjk mesa vulkan-intel
 ```
 
@@ -288,13 +288,13 @@ pacman -S grub efibootmgr networkmanager network-manager-applet dialog mtools do
 
 ### 18.1 使用 GRUB
 
-```
+```sh
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 ```
 
 生成 grub 配置
 
-```
+```sh
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
@@ -302,7 +302,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 给 bootctl 指定路径
 
-```
+```sh
 bootctl --path=/boot/efi install
 ```
 
@@ -310,7 +310,7 @@ bootctl --path=/boot/efi install
 
 编辑 `/boot/loader/loader.conf`:
 
-```
+```pacmanconf
 default  arch.conf
 timeout  4
 console-mode max
@@ -318,7 +318,7 @@ console-mode max
 
 添加启动项，新建 `/boot/loader/entries/arch.conf`:
 
-```
+```pacmanconf
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
@@ -328,14 +328,14 @@ options root="LABEL=arch_os" rw
 ```
 
 ## 19.开启一些必要的 systemd 服务
-```
+```sh
 systemctl enable NetworkManager
 systemctl enable bluetooth
 ```
 
 如果使用无线网的话，可以把 `wpa_supplicant` 的服务也打开。更详细的设置参见 [Arch Wiki](https://wiki.archlinux.org/title/wpa_supplicant) 。
 
-```
+```sh
 systemctl enable wpa_supplicant.service
 ```
 
@@ -343,14 +343,14 @@ systemctl enable wpa_supplicant.service
 
 ## 20.添加普通用户
 
-```
+```sh
 useradd -mG wheel username
 passwd username
 ```
 
 给用户 sudo 权限
 
-```
+```sh
 EDITOR=vim visudo
 ```
 
@@ -358,7 +358,7 @@ EDITOR=vim visudo
 
 ## 21.退出并重启
 
-```
+```sh
 exit  #退出chroot环境
 umount /mnt/boot/efi
 umount /mnt
@@ -367,25 +367,25 @@ reboot
 
 ## 22.安装桌面
 
-```
+```sh
 sudo pacman -S xorg lightdm lightdm-gtk-greeter lightdm-gkt-greeter-settings firefox xfce4 xfce4-goodies gvfs libreoffice ...
 ```
 
 启动 lightdm 的 `systemd` 服务。
 
-```
+```sh
 sudo systemctl enable lightdm.service
 ```
 
 如果不想使用各种 Display Manager，可以直接修改 `~/.xinitrc`，之后在 tty 登录后，输入 `startx` 就可以直接进桌面了。查看相关桌面环境的 wiki，里面介绍的很详细。
 
-```
+```sh
 reboot
 ```
 
 如果没有自动生成家目录下的这个分类的目录，比如 Videos、Documents之类的，可以运行下面的命令。如果想要自己管理的，就不用了。
 
-```
+```sh
 xdg-user-dirs-update  # 生成家目录的文件夹
 ```
 <hr>
@@ -397,7 +397,7 @@ Update:
 
 修改 `/etc/systemd/logind.conf`
 
-```bash
+```pacmanconf
 HandleLidSwitch=lock  # 把合盖后的行为改为锁屏，如果是休眠的话，有时候会不能正常唤醒
 ```
 
@@ -409,19 +409,19 @@ HandleLidSwitch=lock  # 把合盖后的行为改为锁屏，如果是休眠的�
 
 使用 `systemd-timesyncd` 。先查看服务是否开启：
 
-```
+```sh
 systemctl is-enabled systemd-timesyncd.service
 ```
 
 如果显示 disabled ，则开启它：
 
-```
+```sh
 systemctl enabled systemd-timesyncd.service --now
 ```
 
 在 `/etc/systemd/timesyncd.conf` 中更改 NTP 服务器（我这里用了阿里云的 NTP 服务器）：
 
-```
+```pacmanconf
 [Time]
 NTP=ntp1.aliyun.com
 FallbackNTP=ntp3.aliyun.com ntp2.aliyun.com 0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
@@ -429,7 +429,7 @@ FallbackNTP=ntp3.aliyun.com ntp2.aliyun.com 0.arch.pool.ntp.org 1.arch.pool.ntp.
 ```
 使用 `timedatectl status` 查看 timesyncd 的状态：
 
-```
+```pacmanconf
 NTP service: active
 ```
 即为开启成功。
