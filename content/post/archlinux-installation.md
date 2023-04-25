@@ -1,7 +1,7 @@
 ---
 title: "Archlinux 安装记录"
 date: 2021-01-14 
-lastmod: 2023-04-21
+lastmod: 2023-04-25
 description: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 summary: 按照 arch wiki 的方法安装基本的 archlinux，以及后续的一些基本软件和桌面环境的安装。
 tags: [linux, arch]
@@ -306,7 +306,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 bootctl --path=/boot/efi install
 ```
 
-如果是在 QEMU 里面安装，想要使用 UEFI 的话，需要安装 `edk2-ovmf` 包，才可以为 QEMU [提供 UEFI 启动选项](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_an_OVMF-based_guest_VM)。
+如果是在 QEMU 里面安装，想要使用 UEFI 的话，需要在宿主机安装 `edk2-ovmf` 包，才可以为 QEMU [提供 UEFI 启动选项](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_an_OVMF-based_guest_VM)。
 
 编辑 `/boot/loader/loader.conf`:
 

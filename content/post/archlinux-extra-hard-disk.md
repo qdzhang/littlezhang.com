@@ -1,12 +1,12 @@
 ---
 title: "Arch Linux 挂载第二块硬盘"
 date: 2023-04-21
-lastmode:
+lastmode: 2023-04-25
 description: 如何在 Arch Linux 安装后，挂载一块新的硬盘。
 tags: [linux,arch]
 categories: [linux,arch]
 series: []
-toc: false
+toc: true
 math: false
 markup: md
 draft: false
@@ -87,7 +87,29 @@ cat /mnt/etc/fstab  # 检查 fstab
 
 这时在 `/mnt/etc/fstab` 中应该就能看到新的硬盘的 entity 了
 
-## 5. 建立 Symlinks
+## 5. 配置 Boot Loader
+
+这里以 GRUB 为例。先进入 chroot
+
+```sh
+arch-chroot /mnt
+```
+
+安装 grub 到硬盘
+
+```sh
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+```
+
+生成 grub 配置
+
+```sh
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+新的硬盘就可以在 Linux 系统启动后在 `/data` 挂载点看到了。后续还需要一些其他的设置。
+
+## 6. 建立 Symlinks
 
 这时可以在新的 `/data` 文件夹下建立一个新的 Home 目录 `/data/[user]`，在这个 Home 里建立原来的 Home 里的 symlinks ，比如 `Downloads` 文件夹
 
@@ -101,7 +123,7 @@ ln -s /data/[user]/Downloads/ /home/[user]/Downloads
 sudo chown [owner]:[group] -R /data/Downloads/
 ```
 
-## 6. 设置回收站（trash-cli）
+## 7. 设置回收站（trash-cli）
 
 我在 Arch Linux 上使用[trash-cli](https://github.com/andreafrancia/trash-cli) 作为符合 freedesktop.org 标准的回收站，配合 pcmanfm 很好用。要想使新硬盘上的文件删除时也进入回收站，需要在 `/data` 下建立一个新文件夹 `.Trash-1000` ，然后更改 `/data/.Trash-1000` 的 owner 和 group
 
