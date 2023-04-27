@@ -1,7 +1,7 @@
 ---
 title: "Arch Linux 挂载第二块硬盘"
 date: 2023-04-21
-lastmode: 2023-04-25
+lastmode: 2023-04-27
 description: 如何在 Arch Linux 安装后，挂载一块新的硬盘。
 tags: [linux,arch]
 categories: [linux,arch]
@@ -125,7 +125,7 @@ sudo chown [owner]:[group] -R /data/Downloads/
 
 ## 7. 设置回收站（trash-cli）
 
-我在 Arch Linux 上使用[trash-cli](https://github.com/andreafrancia/trash-cli) 作为符合 freedesktop.org 标准的回收站，配合 pcmanfm 很好用。要想使新硬盘上的文件删除时也进入回收站，需要在 `/data` 下建立一个新文件夹 `.Trash-1000` ，然后更改 `/data/.Trash-1000` 的 owner 和 group
+我在 Arch Linux 上使用[trash-cli](https://github.com/andreafrancia/trash-cli) 作为符合 [freedesktop.org 标准](https://freedesktop.org/wiki/Specifications/trash-spec/)的回收站，配合 pcmanfm 很好用（在 Arch Linux 上需要安装 `gvfs` 这个包）。要想使新硬盘上的文件删除时也进入回收站，需要在 `/data` 下建立一个新文件夹 `.Trash-<uid>` ，我的 uid 是 1000，所以这里是 `.Trash-1000` 。然后更改 `/data/.Trash-1000` 的 owner 和 group
 
 ```sh
 sudo chown [owner]:[group] -R /data/.Trash-1000/
