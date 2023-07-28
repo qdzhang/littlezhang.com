@@ -2,7 +2,7 @@
 title: "Linux 办公记（一）：设置打印机"
 date: 2023-07-26
 lastmode:
-description:
+description: 尝试完全使用 Linux 进行办公，记录一下这个过程。这篇文章主要介绍如何在 Linux 下使用打印机。
 tags: [Linux]
 categories: [Linux]
 series: []
@@ -16,7 +16,7 @@ draft: false
 
 这篇文章记录如何设置打印机。分成三个步骤：设置 CUPS 打印系统、使用 GUI 对打印机进行设置、安装打印机驱动。我是在 Arch Linux 下进行设置的，如果你使用的其他的发行版，基本的设置过程可以参考，但是包名很可能是不同的，需要注意。
 
-# 设置 CUPS
+## 设置 CUPS
 
 CUPS 是 Linux 下的一套通用打印系统，用来管理打印相关的工作，[Arch Linux wiki](https://wiki.archlinux.org/title/CUPS "Arch wiki") 中有详细的介绍。我们只需要以下两个简单步骤：
 
@@ -32,7 +32,7 @@ sudo pacman -S cups
 sudo systemctl start cups.service
 ```
 
-# 使用 GUI 对打印机进行设置
+## 使用 GUI 对打印机进行设置
 
 使用 GUI 对于一般办公人员很友好，如果你正在使用 GNOME 等完整的桌面环境，那么桌面中可能已经自带了打印机的设置界面；如果你和我一样使用 i3 等窗口管理器，那么需要安装额外的软件。我选择使用 `system-config-printer` 来对 CUPS 进行设置。
 
@@ -40,7 +40,7 @@ sudo systemctl start cups.service
 
 但是有很大的概率 `Print Settings` 只会默认选择使用通用的驱动，那么就需要额外安装驱动。
 
-# 设置打印机驱动
+## 设置打印机驱动
 
 {{< tips info >}}
 目前 CUPS 的版本（2.x) 还是使用 PDD 文件来对打印机进行驱动，但是后续的 3.x 版本将会[移除 PDD 的支持](https://openprinting.github.io/OpenPrinting-News-February-2023/) ，当 3.0 正式版发布后，我可能会更新这部分内容，目前下面的步骤还是可行的。
