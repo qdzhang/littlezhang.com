@@ -1,8 +1,8 @@
 ---
-title: "把 git 仓库中的单个文件提取到新仓库"
+title: "把 git 仓库中的单个文件（文件夹）提取到新仓库"
 date: 2022-08-14
-lastmode:
-description: 使用 git fast-export 和 fast-import ，把 git 仓库中的一个文件提取出来，建立新的仓库，并保留该文件的所有的历史。
+lastmode: 2023-08-20
+description: 使用 git fast-export 和 fast-import ，把 git 仓库中的一个文件（文件夹）提取出来，建立新的仓库，并保留该文件的所有的历史。
 tags: [git]
 categories: [git]
 series: []
@@ -14,7 +14,7 @@ draft: false
 
 最近我把 [Emacs 配置仓库](https://github.com/qdzhang/vanilla-emacs)里的一些文件整理了出来，想放到新的仓库里，以便更好的复用，同时保持 Emacs 配置尽量精简。如果只是简单地复制粘贴，那么这些文件之前的提交历史就没了。Git 里有两个好用的命令，可以把单个文件的提交历史也“提取”出来。
 
-假设我们要把 A 仓库（`/home/dir/A`）的文件 f （`/home/dir/A/f`）连同 f 的提交历史一同提取到新仓库 B （`/home/dir/B`），这一过程分为三步：
+假设我们要把 A 仓库（`/home/dir/A`）的文件（或是文件夹） f （`/home/dir/A/f`）连同 f 的提交历史一同提取到新仓库 B （`/home/dir/B`），这一过程分为三步：
 
 1. 建立新仓库 B ，并使用 git 初始化，而且需要把 branch 的名称改为和 A 仓库里的 branch 一样（尤其是现在 Github 默认的 `main` branch ，需要特别注意）。
 2. 在 A 仓库里使用 `git fast-export` 导出 f 和它的历史。
